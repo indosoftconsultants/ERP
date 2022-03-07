@@ -1,0 +1,299 @@
+﻿@model IEnumerable<ERP.Models.EmployeeBasicDetailsModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NamePrefix)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrentPinCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrentCityId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrentStateId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PermanentPinCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PermanentCityId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PermanentStateId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MobileNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AlternateMobileNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaritialStatusId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassportNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AadhaarNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DrivingLicenseNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReferencePerson1Contact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReferencePerson2Contact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoOfGirlChild)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoOfBoyChild)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Children)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Height)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DrivingLiscenseExpiryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MiddleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpouseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GenderId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrentAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PermanentAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PANCardNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EducationId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReferencePerson1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReferencePerson2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProvidentFundNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lastid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EntryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EntryBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassCompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastEditedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastCompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastEditedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamePrefix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentPinCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentCityId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentStateId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PermanentPinCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PermanentCityId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PermanentStateId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MobileNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlternateMobileNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaritialStatusId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassportNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AadhaarNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DrivingLicenseNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReferencePerson1Contact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReferencePerson2Contact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfGirlChild)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfBoyChild)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Children)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DrivingLiscenseExpiryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MiddleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpouseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GenderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PermanentAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PANCardNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EducationId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReferencePerson1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReferencePerson2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProvidentFundNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassCompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastEditedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastCompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastEditedDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

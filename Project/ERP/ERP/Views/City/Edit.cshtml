@@ -1,0 +1,55 @@
+﻿@model ERP.Models.CityModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<hr />
+<div class="col-lg-6 grid-margin stretch-card" style="margin-left:20%">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label>Country</label>
+                            <br />
+                            @Html.DropDownListFor(m => m.CountryId, new SelectList(@ViewBag.EditCountryList, "Id", "CountryName"), "--Select--"
+                                                  , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-50 rounded-1  " })
+                        </div>
+                        <div class="form-group">
+                            <label>Country</label>
+                            <br />
+                            @Html.DropDownListFor(m => m.StateId, new SelectList(@ViewBag.EditStateList, "Id", "StateName"), "--Select--"
+                                                  , new { @id = "ddlState", @class = "btn btn-success dropdown-toggle btn-sm w-50 rounded-1  " })
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="CityName" class="control-label"></label>
+                            <input asp-for="CityName" class="form-control" />
+                            <span asp-validation-for="CityName" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-icon-text btn-sm rounded-0">
+                                <i class="ti-file btn-icon-prepend"></i>
+                                Submit
+                            </button>
+                            <button type="button" class="btn btn-dark btn-sm rounded-0" onclick="location.href='@Url.Action("Index", "City")'">Back</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+         </div>
+  </div>
+ </div>
+
+
+            @section Scripts {
+                @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+            }
+            <script>
+    $('#ddlCountry').val('@ViewBag.CountryId').change();
+    $('#ddlState').val('@ViewBag.StateId').change();
+            </script>

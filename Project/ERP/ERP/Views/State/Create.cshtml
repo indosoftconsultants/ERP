@@ -1,0 +1,49 @@
+﻿@model ERP.Models.StateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<hr />
+<div class="col-lg-6 grid-margin stretch-card" style="margin-left:20%">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label>Country</label>
+                            <br />
+                            @*<input asp-for="CountryId" class="form-control" />
+        <span asp-validation-for="CountryId" class="text-danger"></span>*@
+                            @Html.DropDownListFor(m => m.CountryId, new SelectList(@ViewBag.CountryList, "Id", "CountryName"), "--Select--", new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-50 rounded-1  " })
+                            <span asp-validation-for="CountryId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="StateName" class="control-label"></label>
+                            <input asp-for="StateName" class="form-control" />
+                            <span asp-validation-for="StateName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-icon-text btn-sm rounded-0">
+                                <i class="ti-file btn-icon-prepend"></i>
+                                Submit
+                            </button>&nbsp;
+                            <button id="ToastNotification" type="button" class="btn btn-dark btn-sm rounded-0" onclick="location.href='@Url.Action("Index", "State")'">Back</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+         </div>  
+     </div>  
+</div>  
+
+            <div>
+                
+            </div>
+
+            @section Scripts {
+                @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+            }

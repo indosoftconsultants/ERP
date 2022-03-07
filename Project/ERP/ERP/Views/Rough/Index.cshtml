@@ -1,0 +1,28 @@
+﻿<div class="form-group">
+    <label>Country</label>
+    <br />
+    @Html.DropDownList("c", new SelectList(@ViewBag.CountryList, "Id", "CountryName"), "--Select--"
+                           , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-50 rounded-1  " })
+</div>
+<div class="form-group">
+    <label>State</label>
+    <br />
+    @Html.DropDownList("s", new SelectList(@ViewBag.StateList, "Id", "StateName"), "--Select--"
+                           , new { @id = "ddlState", @class = "btn btn-success dropdown-toggle btn-sm w-50 rounded-1  " })
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $("#ddlCountry").change(function () {
+            var id = $(this).val();
+            $("#state").empty();
+            $.get("StateBind", { country_id: id }, function (data) {
+                var v = "<option>---Select---</option>";
+                $.each(data, function (i, v1) {
+                    v += "<option value=" + v1.Value + ">" + v1.Text + "</option>";
+                });
+                $("#ddlState").html(v);
+            });
+        });
+</script>

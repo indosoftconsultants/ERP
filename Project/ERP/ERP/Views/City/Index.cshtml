@@ -1,0 +1,73 @@
+﻿@model IEnumerable<ERP.Models.CityModel>
+
+    @{
+    ViewData["Title"] = "Index";
+    }
+
+    <button type="button" class="btn  btn-icon-text btn-sm rounded-1" onclick="location.href='@Url.Action("Create", "City")'">
+
+        <i class="bi bi-plus-circle-fill"></i>
+        Add
+    </button>
+    <br />
+    @using (Html.BeginForm("getdata", "City", FormMethod.Get))    
+        {
+            <button type="submit" class="btn btn-info rounded-3 btn-sm">Show List</button>
+        }
+    <br />
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="table table-responsive" style="height: 380px; overflow: auto;width:auto">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Id)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CityName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.StateId)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CountryId)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null)
+                        {
+                            @foreach (var item in Model) {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CityName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.StateId)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CountryId)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @id = "btnedit", @class = "mdi mdi-pencil btn-primary btn-sm", title = "Edit" }) |
+
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "mdi mdi-delete btn-danger btn-sm", title = "Delete" })
+                                </td>
+                            </tr>
+}                       }
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>

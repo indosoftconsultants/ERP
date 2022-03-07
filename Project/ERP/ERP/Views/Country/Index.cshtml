@@ -1,0 +1,144 @@
+﻿@model IEnumerable<ERP.Models.CountryModel>
+
+@{
+    ViewData["Title"] = "Index";
+    TempData["status"] = "";
+}
+
+
+<p>
+    @*<a asp-action="Create">Create New</a>
+        <input type="button" class="btn btn-primary btn-sm" value="Add New Country" onclick="location.href='@Url.Action("Create", "Country")'" />*@
+    <button type="button" class="btn  btn-icon-text btn-sm rounded-1" onclick="location.href='@Url.Action("Create", "Country")'">
+        @*<i class="mdi mdi-plus-circle"></i>*@
+        <i class="bi bi-plus-circle-fill"></i>
+        Add
+    </button>
+</p>
+<br />
+@using (Html.BeginForm("getdata", "Country", FormMethod.Get))@*onclick load table*@
+{
+    <button type="submit" class="btn btn-info rounded-3 btn-sm">Show List</button>
+}
+<br />
+
+
+
+<!-- #region testing -->
+@*@if ((string)@TempData["status"] == "Blocked")
+    {
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">x</button>
+            <strong>Blocked successfully</strong>
+        </div>
+    }
+    else if ((string)@TempData["status"] == "UnBlocked")
+    {
+        <div class="alert alert-fill-success">
+            <button type="button" class="close" data-dismiss="alert">x</button>
+            <strong>UnBlocked successfully</strong>
+        </div>
+    }*@
+@*@if (ViewBag.Message != null)
+    {
+        if (ViewBag.Message == "Blocked")
+        {
+            <script type="text/javascript">
+
+                        window.onload = function ()
+                        {
+                                    alert("@ViewBag.Message");
+                        };
+            </script>
+        }
+        else if (ViewBag.Message == "UnBlocked")
+        {
+            <script type="text/javascript">
+
+                window.onload = function () {
+                    alert("@ViewBag.Message");
+                };
+            </script>
+        }
+
+
+    }*@
+
+@*<button name="Button" value="Load" asp-action="Index">Load</button>
+    <div>
+        @TempData["buttonval"]
+    </div>*@
+<!-- #endregion -->
+
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            @*<h4 class="card-title">Country List</h4>*@
+            <div class="table table-responsive" style="height: 380px; overflow: auto;width:auto">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Id)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CountryName)
+                            </th>
+
+                            <th style="text-align:center">
+                                Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @if (Model != null)
+                        {
+
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Id)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CountryName)
+                                    </td>
+
+                                    <td style="text-align:center">
+                                        @Html.ActionLink("", "Edit", new { id = item.Id }, new { @id = "btnedit", @class = "mdi mdi-pencil btn-info btn-sm", title = "Edit" }) |
+                                        @*@Html.ActionLink("", "Block", "Country", new { id = item.Id }, new { @class = " mdi mdi-block-helper btn-warning btn-sm", title = "Block" }) |*@
+                                        @Html.ActionLink("", "Delete", new { id = item.Id }, new { @class = "mdi mdi-delete btn-danger btn-sm", title = "Delete" })
+                                    </td>
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@*@if (TempData["Message"] != null)
+{
+    <script type="text/javascript">
+    /*window.onload = function () {*/
+        var message = "@TempData["Message"]";
+        $.notify.defaults(message, { type: "success", align: "center", verticalAlign: "top"  });
+        //    //{
+        //    //type: 'Success',
+        //    //icon: 'check',
+        //    //align: "center",
+        //    //verticalAlign: "top",
+        //    //animation: true,
+        //    //animationType: "drop",
+        //    //close: true
+        //    //}
+        
+           /*};*/
+
+    </script>
+}*@

@@ -1,0 +1,118 @@
+﻿@model IEnumerable<ERP.Models.StateModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<!-- #region Working Modal  -->
+<!--#region Not neccessary  -->
+@*<script>                        a
+        $('#Addd').on("click", "button", function () {
+            $.ajax({
+
+                url: '/State/Create'
+
+            }).done(function (msg) {
+                $("#showModal").html(msg);
+                $("#StateCreate").modal();
+            })
+        })
+    </script>*@
+<!-- #endregion -->
+@*<button href="#" id="Add" class="btn btn-primary" data-toggle="modal" data-target="#StateCreate">  Add  </button>*@
+@*<a href="#" data-toggle="modal" data-target="#StateCreate"><strong>Add Information</strong></a>*@
+@*@Html.Partial("Create")*@
+@*@await Html.PartialAsync("Create")*@
+<!-- #endregion -->
+<button type="button" class="btn  btn-icon-text btn-sm rounded-1" onclick="location.href='@Url.Action("Create", "State")'">
+    @*<i class="mdi mdi-plus-circle"></i>*@
+    <i class="bi bi-plus-circle-fill"></i>
+    Add
+</button>
+
+
+@using (Html.BeginForm("getdata", "State", FormMethod.Get))@*onclick load table*@
+{
+    <button type="submit" class="btn btn-info rounded-3 btn-sm">Show List</button>
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            @*<h4 class="card-title">Country List</h4>*@
+            <div class="table table-responsive" style="height: 380px; overflow: auto;width:auto">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Id)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StateName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CountryId)
+                            </th>
+
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null)
+                        {
+
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Id)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.StateName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CountryId)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("", "Edit", new { id = item.Id }, new { @id = "btnedit", @class = "mdi mdi-pencil btn-primary btn-sm", title = "Edit" }) |
+                                        @*@Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "mdi mdi-library-books btn-info btn-sm", title = "Details" }) |*@
+                                        @Html.ActionLink("", "Delete", new { id = item.Id }, new { @class = "mdi mdi-delete btn-danger btn-sm", title = "Delete" })
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*@if (TempData["Message"] != null)
+{
+    <script type="text/javascript">
+    window.onload = function () {
+        var message = "@TempData["Message"]";
+        $.notify(message, "Success"
+        //    //{
+        //    //type: 'Success',
+        //    //icon: 'check',
+        //    //align: "center",
+        //    //verticalAlign: "top",
+        //    //animation: true,
+        //    //animationType: "drop",
+        //    //close: true
+        //    //}
+        );
+           };
+
+    </script>
+}*@
+
+
+
+
