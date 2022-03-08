@@ -78,24 +78,7 @@ namespace ERP.Controllers
             
             try
             {
-                #region sneha post method(not working)
-                //HttpClient client = new HttpClient();
-                //client.BaseAddress = new Uri("http://192.168.10.34:81/api/");
-                //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                //var response = client.PostAsync(client.BaseAddress + "Country", new StringContent(new JavaScriptSerializer().Serialize(collection), Encoding.UTF8, "application/json"));
-                //var result = response.Result;
-                //var jsonString = result.Content.ReadAsStringAsync().Result;
-                //JavaScriptSerializer deSerializedResponse = new JavaScriptSerializer();
-                //CountryModel GetIMEINOList = deSerializedResponse.Deserialize<CountryModel>(jsonString);
-                //if (GetIMEINOList.isSuccess == true)
-                //{
-                //    ModelState.AddModelError(string.Empty, "OK!. Successfull.");
-                //}
-                //else
-                //{
-                //    ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
-                //}
-                #endregion
+               
 
                 using (var client = new HttpClient())
                 {
@@ -133,23 +116,7 @@ namespace ERP.Controllers
 
         }
 
-        //[HttpGet("{id:int}")]
-        //public async Task<ActionResult<CountryModel>> GetCountryById(int id)
-        //{
-        //    try
-        //    {
-        //        var result = await employeeRepository.GetEmployee(id);
-
-        //        if (result == null) return NotFound();
-
-        //        return result;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return StatusCode(StatusCodes.Status500InternalServerError,
-        //            "Error retrieving data from the database");
-        //    }
-        //}
+        
 
         // POST: CountryController/Edit/5
         [HttpPost]
