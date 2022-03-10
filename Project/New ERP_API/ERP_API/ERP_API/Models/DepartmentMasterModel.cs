@@ -13,6 +13,7 @@ namespace ERP_API.Models
     {
 
         public static bool errorMsg { get; set; }
+
         public int Id { get; set; }
 
         public string DepartmentName { get; set; }
