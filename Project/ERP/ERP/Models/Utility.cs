@@ -11,7 +11,7 @@ namespace ERP.Models
     public class Utility:IDisposable
     {
         public static DataTable GetData(string procName)
-        {
+         {
             try
             {
                 var dtvalues = DataLayer.FillDataTable(procName);

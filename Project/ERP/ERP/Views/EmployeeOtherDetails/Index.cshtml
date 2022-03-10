@@ -12,9 +12,11 @@
                         <div class="row">
                             <div class="form col-md-4">
                                 <div class="form-group">
-                                    <label asp-for="EmployeeId" class="control-label"></label>
-                                    <input asp-for="EmployeeId" id="EmployeeId" class="form-control" />
-                                    <span asp-validation-for="EmployeeId" class="text-danger"></span>
+                                    <br />
+                                    <label asp-for="EmployeeId" class="control-label"></label>:
+                                    <label></label>
+                                    @*<input asp-for="EmployeeId" id="EmployeeId" class="form-control" />
+                                    <span asp-validation-for="EmployeeId" class="text-danger"></span>*@
                                 </div>
                             </div>
                             <div class="form col-md-4">
@@ -30,18 +32,20 @@
                         </div>
                         <div class="row justify-content-center">
                             <div class="form col">
-                                <div class="form-group">
-                                    <label asp-for="Department" class="control-label"></label>
-                                    <input asp-for="Department" class="form-control" />
+                                @*<div class="form-group">
+                                    <label>Department</label>
+                                    <br />
+                                    @Html.DropDownListFor(m => m.Department, new SelectList(@ViewBag.DepartmentList, "Id", "DepartmentName"), "--Select--", new { @id = "ddlDepartment", @class = "btn btn-success dropdown-toggle btn-sm w-50 rounded-1  " })
                                     <span asp-validation-for="Department" class="text-danger"></span>
-                                </div>
+                                </div>*@
                             </div>
                             <div class="form col">
-                                <div class="form-group">
-                                    <label asp-for="Designation" class="control-label"></label>
-                                    <input asp-for="Designation" class="form-control" />
+                                @*<div class="form-group">
+                                    <label>Designation</label>
+                                    <br />
+                                    @Html.DropDownListFor(m => m.Designation, new SelectList(@ViewBag.DesignationList, "Id", "DesignationName"), "--Select--", new { @id = "ddlDesignation", @class = "btn btn-success dropdown-toggle btn-sm w-50 rounded-1  " })
                                     <span asp-validation-for="Designation" class="text-danger"></span>
-                                </div>
+                                </div>*@
                             </div>
                         </div>
                         <div class="row">

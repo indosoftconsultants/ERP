@@ -132,7 +132,7 @@ namespace ERP.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, DepartmentMasterModel collection)
-        {
+         {
             try
             {
                 using (var client = new HttpClient())

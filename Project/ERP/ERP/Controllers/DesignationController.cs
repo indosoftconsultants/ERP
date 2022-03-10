@@ -29,6 +29,7 @@ namespace ERP.Controllers
         // GET: DesignationController
         public ActionResult Index()
         {
+            
             return View();
         }
 
@@ -54,7 +55,7 @@ namespace ERP.Controllers
         // GET: DesignationController/Create
         public ActionResult Create()
         {
-            ViewBag.DepartmentList = DatatableToClass.CommonMethod.ConvertToList<DepartmentMasterModel>(Utility.GetData("List_GetDepartment"));
+            
             return View();
         }
 

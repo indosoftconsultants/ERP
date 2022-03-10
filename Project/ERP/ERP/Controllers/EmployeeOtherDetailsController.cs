@@ -11,8 +11,11 @@ namespace ERP.Controllers
     public class EmployeeOtherDetailsController : Controller
     {
         // GET: EmployeeOtherDetailsController
+        [HttpGet]
         public ActionResult Index()
         {
+            ViewBag.DepartmentList = DatatableToClass.CommonMethod.ConvertToList<DepartmentMasterModel>(Utility.GetData("List_GetDepartment"));
+            ViewBag.DesignationList = DatatableToClass.CommonMethod.ConvertToList<DesignationMasterModel>(Utility.GetData("List_GetDesignation"));
             return View();
         }
 
@@ -25,6 +28,8 @@ namespace ERP.Controllers
         // GET: EmployeeOtherDetailsController/Create
         public ActionResult Create()
         {
+            ViewBag.DepartmentList = DatatableToClass.CommonMethod.ConvertToList<DepartmentMasterModel>(Utility.GetData("List_GetDepartment"));
+            ViewBag.DesignationList = DatatableToClass.CommonMethod.ConvertToList<DesignationMasterModel>(Utility.GetData("List_GetDesignation"));
             return View();
         }
 
@@ -35,12 +40,13 @@ namespace ERP.Controllers
         {
             try
             {
-                return RedirectToAction("~/Views/EmployeeBasicDetails/Create.cshtml");
-                    
+                //return View("Create","EmployeeBasicDetails");
+                return RedirectToAction("Create", "EmployeeBasicDetails");
+
             }
             catch
             {
-                return RedirectToAction("~/Views/EmployeeBasicDetails/Create.cshtml");
+                return RedirectToAction("Create", "EmployeeBasicDetails");
             }
         }
 

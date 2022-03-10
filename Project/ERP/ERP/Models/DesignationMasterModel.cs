@@ -17,7 +17,7 @@ namespace ERP.Models
 
         public int DepartmentId { get; set; }
 
-        public string EntryDate { get; set; }
+        public DateTime EntryDate { get; set; }
 
         public string EntryBy { get; set; }
 
@@ -31,7 +31,7 @@ namespace ERP.Models
 
         public string LastCompanyName { get; set; }
 
-        public string LastEditedDate { get; set; }
+        public DateTime LastEditedDate { get; set; }
 
         SqlConnection con = new SqlConnection();
 

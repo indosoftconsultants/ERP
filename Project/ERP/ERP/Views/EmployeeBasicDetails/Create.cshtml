@@ -328,11 +328,16 @@
             </li>
 
             <li>
-                <a href="#employment" aria-controls="employment" role="tab" data-toggle="tab"  class="btn btn-danger rounded-0">
-                    New Tab
+                <a href="#employment" id="otherdetails" aria-controls="employment" role="tab" data-toggle="tab" class="btn btn-danger rounded-0">
+                    Other Details
                 </a>
             </li>
 
+            <li>
+                <a href="#BankDetails" id="Bank" aria-controls="BankDetails" role="tab" data-toggle="tab" class="btn btn-info rounded-0">
+                    Bank Details
+                </a>
+            </li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content" style="padding-top: 20px; background-color: #E8E8E8">
@@ -358,7 +363,7 @@
                                                 <label>Name Prefix</label>
                                                 <br />
                                                 @Html.DropDownListFor(m => m.NamePrefix, new SelectList(@ViewBag.List_GetNamePrefix, "Id", "PrefixName"), "--Select--"
-                                                                       , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
+                                                                       , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  ", @data_val = "false" })
                                                 <span asp-validation-for="NamePrefix" class="text-danger"></span>
                                             </div>
                                             <div class="col">
@@ -389,7 +394,7 @@
                                                     <label>Maritial Status</label>
                                                     <br />
                                                     @Html.DropDownListFor(m => m.MaritialStatusId, new SelectList(@ViewBag.List_GetMaritialStatus, "Id", "MaritialStatus"), "--Select--"
-                                                                           , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
+                                                                           , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  ", @data_val = "false" })
                                                     <span asp-validation-for="MaritialStatusId" class="text-danger"></span>
                                                 </div>
                                             </div>
@@ -403,14 +408,14 @@
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label asp-for="NoOfGirlChild" class="control-label"></label>
-                                                    <input asp-for="NoOfGirlChild" class="form-control" />
+                                                    <input asp-for="NoOfGirlChild" class="form-control" data-val="false" />
                                                     <span asp-validation-for="NoOfGirlChild" class="text-danger"></span>
                                                 </div>
                                             </div>
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label asp-for="NoOfBoyChild" class="control-label"></label>
-                                                    <input asp-for="NoOfBoyChild" class="form-control" />
+                                                    <input asp-for="NoOfBoyChild" class="form-control" data-val="false" />
                                                     <span asp-validation-for="NoOfBoyChild" class="text-danger"></span>
                                                 </div>
                                             </div>
@@ -420,7 +425,7 @@
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label asp-for="Email" class="control-label"></label>
-                                                    <input asp-for="Email" class="form-control" />
+                                                    <input asp-for="Email" class="form-control" data_val="false" />
                                                     <span asp-validation-for="Email" class="text-danger"></span>
                                                 </div>
                                             </div>
@@ -431,7 +436,7 @@
                                                     <label>Gender</label>
                                                     <br />
                                                     @Html.DropDownListFor(m => m.GenderId, new SelectList(@ViewBag.List_GetGender, "Id", "GenderName"), "--Select--"
-                                                                           , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-75 rounded-1  " })
+                                                                           , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-75 rounded-1  ", @data_val = "false" })
                                                     <span asp-validation-for="GenderId" class="text-danger"></span>
                                                 </div>
                                             </div>
@@ -441,14 +446,14 @@
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label asp-for="Height" class="control-label"></label>
-                                                    <input asp-for="Height" class="form-control" />
+                                                    <input asp-for="Height" class="form-control" data-val="false" />
                                                     <span asp-validation-for="Height" class="text-danger"></span>
                                                 </div>
                                             </div>
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label asp-for="Weight" class="control-label"></label>
-                                                    <input asp-for="Weight" class="form-control" />
+                                                    <input asp-for="Weight" class="form-control" data-val="false" />
                                                     <span asp-validation-for="Weight" class="text-danger"></span>
                                                 </div>
                                             </div>
@@ -474,7 +479,7 @@
                                                     <label>Current State</label>
                                                     <br />
                                                     @Html.DropDownListFor(m => m.CurrentStateId, new SelectList(@ViewBag.StateList, "Id", "StateName"), "--Select--"
-                                                                           , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
+                                                                           , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  ", @data_val = "false" })
                                                     <span asp-validation-for="CurrentStateId" class="text-danger"></span>
                                                 </div>
                                             </div>
@@ -483,7 +488,7 @@
                                                     <label>Current City</label>
                                                     <br />
                                                     @Html.DropDownListFor(m => m.CurrentCityId, new SelectList(@ViewBag.CityList, "Id", "CityName"), "--Select--"
-                                                                           , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
+                                                                           , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  ", @data_val = "false" })
                                                     <span asp-validation-for="CurrentCityId" class="text-danger"></span>
                                                 </div>
                                             </div>
@@ -502,7 +507,7 @@
                                                     <label>Permanent State</label>
                                                     <br />
                                                     @Html.DropDownListFor(m => m.PermanentStateId, new SelectList(@ViewBag.StateList, "Id", "StateName"), "--Select--"
-                                                                           , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
+                                                                           , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  ", @data_val = "false" })
                                                     <span asp-validation-for="PermanentStateId" class="text-danger"></span>
                                                 </div>
                                             </div>
@@ -511,7 +516,7 @@
                                                     <label>Permanent City</label>
                                                     <br />
                                                     @Html.DropDownListFor(m => m.PermanentCityId, new SelectList(@ViewBag.CityList, "Id", "CityName"), "--Select--"
-                                                                           , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
+                                                                           , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  ", @data_val = "false" })
                                                     <span asp-validation-for="PermanentCityId" class="text-danger"></span>
                                                 </div>
                                             </div>
@@ -521,7 +526,7 @@
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label asp-for="MobileNumber" class="control-label"></label>
-                                                    <input asp-for="MobileNumber" class="form-control" />
+                                                    <input asp-for="MobileNumber" class="form-control" data_val="false" />
                                                     <span asp-validation-for="MobileNumber" class="text-danger"></span>
                                                 </div>
                                             </div>
@@ -584,6 +589,7 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="row">
                                             <div class="col">
                                                 <div class="form-group">
@@ -615,7 +621,7 @@
                                                     <label>Education</label>
                                                     <br />
                                                     @Html.DropDownListFor(m => m.EducationId, new SelectList(@ViewBag.List_GetEducation, "Id", "EducationName"), "--Select--"
-                                                                           , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
+                                                                           , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  ", @data_val = "false" })
                                                     <span asp-validation-for="EducationId" class="text-danger"></span>
                                                 </div>
                                             </div>
@@ -644,30 +650,206 @@
                     </div>
                 </div>
             </div>
+
             <div role="tabpanel" class="tab-pane" id="employment">
-                @{
-                   await Html.RenderPartialAsync("~/Views/EmployeeOtherDetails/Index.cshtml");
-                 }
 
-                @*@using (Html.BeginForm("EmployeeOtherDetails", "EmployeeOtherDetails", FormMethod.Post))
-        {
-        <input type="type" name="name" value="" />
-        }*@
+                <div class="col-12 grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class=" row d-flex justify-content-center">
+                                <div class="col-md-10">
+                                    <label class="text-dark">Other Details</label>
+                                    <form asp-action="Create">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <div class="row">
+                                            <div class="form col-md-4">
+                                                <div class="form-group">
 
-                
+                                                    <label asp-for="OtherDeails_EmployeeId" class="control-label"></label>:
+
+                                                    <input asp-for="OtherDeails_EmployeeId" id="OtherDetails_EmployeeId" class="form-control" />
+                                                    <span asp-validation-for="OtherDeails_EmployeeId" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form col-md-8">
+                                            </div>
+
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="form col-md-4 ">
+                                                <div class="form-group">
+                                                    <label asp-for="OtherDetails_JoiningDate" class="control-label"></label>
+                                                    <input asp-for="OtherDetails_JoiningDate" class="form-control" />
+                                                    <span asp-validation-for="OtherDetails_JoiningDate" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <div class="form col">
+                                                <div class="form-group">
+                                                    <label>Department</label>
+                                                    <br />
+                                                    @Html.DropDownListFor(m => m.OtherDetails_Department, new SelectList(@ViewBag.DepartmentList, "Id", "DepartmentName"), "--Select--", new { @id = "ddlDepartment", @class = "btn btn-success dropdown-toggle btn-sm w-50 rounded-1  " })
+                                                    <span asp-validation-for="OtherDetails_Department" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form col">
+                                                <div class="form-group">
+                                                    <label>Designation</label>
+                                                    <br />
+                                                    @Html.DropDownListFor(m => m.OtherDetails_Designation, new SelectList(@ViewBag.DesignationList, "Id", "DesignationName"), "--Select--", new { @id = "ddlDesignation", @class = "btn btn-success dropdown-toggle btn-sm w-50 rounded-1  " })
+                                                    <span asp-validation-for="OtherDetails_Designation" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="form col-md-6">
+                                                <div class="form-group">
+
+                                                    <label>Shift Schedule</label>
+                                                    <br />
+                                                    @Html.DropDownListFor(m => m.OtherDetails_Designation, new SelectList(@ViewBag.List_GetShiftSchedule, "Id", "Name"), "--Select--", new { @id = "ddlDesignation", @class = "btn btn-success dropdown-toggle btn-sm w-50 rounded-1  " })
+
+                                                    <span asp-validation-for="OtherDetails_ShiftScheduleId" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form col-md-4">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form col-md-6">
+                                                <div class="form-group">
+                                                    <label asp-for="OtherDetails_WeeklyOff" class="control-label"></label>
+                                                    <input asp-for="OtherDetails_WeeklyOff" class="form-control" />
+                                                    <span asp-validation-for="OtherDetails_WeeklyOff" class="text-danger"></span>
+                                                </div>
+                                                <div class="form col-md-4">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form col-md-2">
+                                                <div class="form-group form-check">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" asp-for="OtherDetails_IsResign" />
+                                                        @Html.DisplayNameFor(model => model.OtherDetails_IsResign)
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form col-md-4">
+                                                <div class="form-group">
+                                                    <label asp-for="OtherDetails_ResignDate" class="control-label"></label>
+                                                    <input asp-for="OtherDetails_ResignDate" class="form-control" />
+                                                    <span asp-validation-for="OtherDetails_ResignDate" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @using (Html.BeginForm("InsertOtherDetails", "EmployeeBasicDetails", FormMethod.Post))
+                {
+                    <button type="submit"  class="btn btn-primary btn-icon-text btn-sm rounded-0">
+                        <i class="ti-file btn-icon-prepend"></i>
+                        Submit
+                    </button>
+                    @*<script>
+                        $("submit").click(function () {
+                            ajax
+                        });
+                    </script>*@
+                }
 
             </div>
-        </div>
-    </div>
-</div>
+            <div role="tabpanel" class="tab-pane" id="BankDetails">
+                <div class="col-12 grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class=" row d-flex justify-content-center">
+                                <div class="col-md-10">
+                                    <label class="text-dark">Bank Details</label>
+                                    <hr class=""/>
+                                    <form asp-action="Create">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <div class="row">
+                                            <div class="form col-md-4">
+                                                <div class="form-group">
+                                                    <label asp-for="BankDetails_EmployeeId" class="control-label"></label>
+                                                    <input asp-for="BankDetails_EmployeeId" id="BankDetails_EmployeeId" class="form-control" />
+                                                    <span asp-validation-for="BankDetails_EmployeeId" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form col-md-8">
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="row">
+                                            <div class="form col-md-6">
+                                                <label asp-for="BankDetails_AccountHoldersName" class="control-label"></label>:
+                                                <input asp-for="BankDetails_AccountHoldersName" class="form-control" />
+                                                <span asp-validation-for="BankDetails_AccountHoldersName" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="row">
+                                            <div class="form col-md-6">
+                                                <label asp-for="BankDetails_AccountNo" class="control-label"></label>:
+                                                <input asp-for="BankDetails_AccountNo" class="form-control" />
+                                                <span asp-validation-for="BankDetails_AccountNo" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="row">
+                                            <div class="form col-md-6">
+                                                <label asp-for="BankDetails_IFSC_Code" class="control-label"></label>:
+                                                <input asp-for="BankDetails_IFSC_Code" class="form-control" />
+                                                <span asp-validation-for="BankDetails_IFSC_Code" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @using (Html.BeginForm("InsertBankDetails", "EmployeeBasicDetails", FormMethod.Post))
+                {
+                    <button type="submit" class="btn btn-primary btn-icon-text btn-sm rounded-0">
+                        <i class="ti-file btn-icon-prepend"></i>
+                        Submit
+                    </button>
+                }
+            </div>
+         </div>
+     </div>
+ </div>
 
 
 
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-
-    <script>
-        $('#EmployeeId').prop('disabled', true);
-    </script>
-}
+           
+           @section Scripts {
+               @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+           
+              <script>
+             $('#EmployeeId').prop('disabled', true);
+             //$('#OtherDetails_EmployeeId').prop('disabled', true);
+             //$('#BankDetails_EmployeeId').prop('disabled', true);
+           
+             $(document).ready(function () {
+             $('#otherdetails').click(function () {
+                 $('#OtherDetails_EmployeeId').val(@TempData.Peek("LastId"))
+                 $('#BankDetails_EmployeeId').val(@TempData.Peek("LastId"))
+             });
+             });
+           
+            </script>
+                  }

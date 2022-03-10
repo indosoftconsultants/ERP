@@ -49,6 +49,12 @@ namespace ERP.Controllers
             ViewBag.CountryList = DatatableToClass.CommonMethod.ConvertToList<StateModel>(Utility.GetData("List_GetCountry"));
             ViewBag.StateList = DatatableToClass.CommonMethod.ConvertToList<StateModel>(Utility.GetData("List_GetState"));
             ViewBag.CityList = DatatableToClass.CommonMethod.ConvertToList<CityModel>(Utility.GetData("List_GetCity"));
+            ViewBag.DepartmentList = DatatableToClass.CommonMethod.ConvertToList<DepartmentMasterModel>(Utility.GetData("List_GetDepartment"));
+            ViewBag.DesignationList = DatatableToClass.CommonMethod.ConvertToList<DesignationMasterModel>(Utility.GetData("List_GetDesignation"));
+            ViewBag.List_GetShiftSchedule = DatatableToClass.CommonMethod.ConvertToList<EmployeeOtherDetailsModel>(Utility.GetData("List_GetShiftSchedule"));
+
+            EmployeeBasicDetailsModel obj = new EmployeeBasicDetailsModel();
+            //obj.OtherDeails_EmployeeId = Convert.ToInt32(TempData["LastId"]);
             return View();
         }
 
@@ -91,7 +97,6 @@ namespace ERP.Controllers
         //}
 
         #endregion
-
         public async Task<ActionResult> Create(EmployeeBasicDetailsModel emp)
         {
             try
@@ -107,7 +112,7 @@ namespace ERP.Controllers
                     TempData["LastId"] = LastId;
                     if (LastId > 0)
                     {
-                        _notyf.Success("Successfully Added" +LastId);
+                        _notyf.Success("Successfully Added" );
                         //return null;
                         return RedirectToAction("create");
                     }
@@ -122,6 +127,36 @@ namespace ERP.Controllers
             catch (Exception ex)
             {               
                 return RedirectToAction("create");
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult InsertOtherDetails(EmployeeBasicDetailsModel collection)
+        {
+            try
+            {
+                //return View("Create","EmployeeBasicDetails");
+                return RedirectToAction("Create", "EmployeeBasicDetails");
+            }
+            catch
+            {
+                return RedirectToAction("Create", "EmployeeBasicDetails");
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult InsertBankDetails(EmployeeBasicDetailsModel collection)
+        {
+            try
+            {
+                //return View("Create","EmployeeBasicDetails");
+                return RedirectToAction("Create", "EmployeeBasicDetails");
+            }
+            catch
+            {
+                return RedirectToAction("Create", "EmployeeBasicDetails");
             }
         }
 

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using ERP.Models;
 using CustomerAPI.Models;
 using System.Data;
+using System.Web.Mvc;
 
 namespace ERP.Models
 {
@@ -137,28 +138,28 @@ namespace ERP.Models
         ////---------------------
         [Key]
         public int EmpId { get; set; }
-        [Required(ErrorMessage = "Select Education")]
+        //[Required(ErrorMessage = "Select NamePrefix")]
         public int NamePrefix { get; set; }//
         [Display(Name = "Current PinCode")]
         public string CurrentPinCode { get; set; }   //
         [Display(Name = "Current City")]
-        [Required(ErrorMessage = "Select City")]
+        //[Required(ErrorMessage = "Select City")]
         public int CurrentCityId { get; set; }      //
         [Display(Name = "Current State")]
-        [Required(ErrorMessage = "Select State")]
+        //[Required(ErrorMessage = "Select State")]
         public int CurrentStateId { get; set; }     //
         [Display(Name = "Permanent PinCode")]
         public string PermanentPinCode { get; set; }   //
         [Display(Name = "Permanent City")]
-        [Required(ErrorMessage = "Select City")]
+        //[Required(ErrorMessage = "Select City")]
         public int PermanentCityId { get; set; }      //
         [Display(Name = "Permanent State")]
         public int PermanentStateId { get; set; }
-        [Required(ErrorMessage = "Mobile Number")]//
+        //[Required(ErrorMessage = "Mobile Number")]//
         public string MobileNumber { get; set; }//
         [Display(Name = "AlternateMobileNumber")]
         public string AlternateMobileNumber { get; set; }//
-        [Required(ErrorMessage ="Select Maritial Status ")]
+        //[Required(ErrorMessage ="Select Maritial Status ")]
         [Display(Name = "Maritial Status")]
         public int MaritialStatusId { get; set; }  //
         [Display(Name = "Passport Number")]
@@ -190,29 +191,64 @@ namespace ERP.Models
         [Required(ErrorMessage = "Enter Your LastName")]
         public string LastName { get; set; }//
         public string SpouseName { get; set; }//
-        [Required(ErrorMessage = "Enter Your Email")]
+        //[Required(ErrorMessage = "Enter Your Email")]
         public string Email { get; set; }//
         [Display(Name = "Gender")]
-        [Required(ErrorMessage = "Select Gender")]
+        //[Required(ErrorMessage = "Select Gender")]
         public int GenderId { get; set; }//
         [Display(Name = "Current Address")]
         public string CurrentAddress { get; set; }//
         [Display(Name = "Permanent Address")]
         public string PermanentAddress { get; set; }//
         public string PANCardNumber { get; set; }//
-        [Required(ErrorMessage ="Select Education")]
-        [Display(Name = "Education")]
+
         
+        [Display(Name = "Education")]  
+        [DataType(DataType.Text)]
         public int EducationId { get; set; }//
         public string ReferencePerson1 { get; set; }//
         public string ReferencePerson2 { get; set; }//
         public string ProvidentFundNumber { get; set; }
         public int lastid { get; set; }
 
+        //Other Details*******************************************
+        [Display(Name ="EmployeeId")]
+        [DataType(DataType.Text)]
+        public int OtherDeails_EmployeeId { get; set; }
+        [Display(Name = "JoiningDate")]
+        [DataType(DataType.Date)]
+        public string OtherDetails_JoiningDate { get; set; }
+        [Display(Name = "Department")]
+        public int OtherDetails_Department { get; set; }
+       
+        public string OtherDetails_DepartmentName { get; set; }
+        [Display(Name = "Designation")]
+        public int OtherDetails_Designation { get; set; }
+        
+        public string OtherDetails_DesignationName { get; set; }
+        [Display(Name = "IsResign")]
+        public bool OtherDetails_IsResign { get; set; }
+        [Display(Name = "ResignDate")]
+        [DataType(DataType.Date)]
+        public string OtherDetails_ResignDate { get; set; }
+        [Display(Name = "ShiftScheduleId ")]
+        public int OtherDetails_ShiftScheduleId { get; set; }
+        [Display(Name = "WeeklyOff")]
+        public string OtherDetails_WeeklyOff { get; set; }
+
+        //Bank Details*******************************************
+        [Display(Name = "EmployeeId")]
+        [DataType(DataType.Text)]
+        public int BankDetails_EmployeeId { get; set; }
+        [Display(Name = "Account Holder's Name")]
+        public string BankDetails_AccountHoldersName { get; set; }
+        [Display(Name = "Account No")]
+        public string BankDetails_AccountNo { get; set; }
+        [Display(Name = "IFSC Code ")]
+        public string BankDetails_IFSC_Code { get; set; }
 
 
-
-        //Common Fields
+        //Common Fields*********************************************
         public string EntryDate { get; set; }
 
         public string EntryBy { get; set; }

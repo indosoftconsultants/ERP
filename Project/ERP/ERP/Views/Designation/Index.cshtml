@@ -30,7 +30,9 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.DesignationName)
                             </th>
-                            
+                            <th>
+                                @Html.DisplayNameFor(model => model.DepartmentId)
+                            </th>
                             <th></th>
                         </tr>
                     </thead>
@@ -39,19 +41,21 @@
                         {
                             @foreach (var item in Model)
                             {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Id)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.DesignationName)
-                                    </td>
-
-                                    <td>
-                                        @Html.ActionLink("", "Edit", new { id = item.Id }, new { @id = "btnedit", @class = "mdi mdi-pencil btn-info btn-sm", title = "Edit" }) |
-                                        @Html.ActionLink("", "Delete", new { id = item.Id }, new { @class = "mdi mdi-delete btn-danger btn-sm", title = "Delete" })
-                                    </td>
-                                </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DesignationName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DepartmentId)
+                            </td>
+                            <td>
+                                @Html.ActionLink("", "Edit", new { id = item.Id }, new { @id = "btnedit", @class = "mdi mdi-pencil btn-info btn-sm", title = "Edit" }) |
+                                @Html.ActionLink("", "Delete", new { id = item.Id }, new { @class = "mdi mdi-delete btn-danger btn-sm", title = "Delete" })
+                            </td>
+                        </tr>
                             }
                         }
                     </tbody>
