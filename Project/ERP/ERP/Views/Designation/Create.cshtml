@@ -1,0 +1,39 @@
+﻿@model ERP.Models.DesignationMasterModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label>Department</label>
+                <br />                
+                @Html.DropDownListFor(m => m.DepartmentId, new SelectList(@ViewBag.DepartmentList, "Id", "DepartmentName"), "--Select--", new { @id = "ddlDepartment", @class = "btn btn-success dropdown-toggle btn-sm w-50 rounded-1  " })
+                <span asp-validation-for="DepartmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DesignationName" class="control-label"></label>
+                <input asp-for="DesignationName" class="form-control" />
+                <span asp-validation-for="DesignationName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-icon-text btn-sm rounded-0">
+                    <i class="ti-file btn-icon-prepend"></i>
+                    Submit
+                </button>
+                &nbsp;
+                <button id="ToastNotification" type="button" class="btn btn-dark btn-sm rounded-0" onclick="location.href='@Url.Action("Index", "Designation")'">Back</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

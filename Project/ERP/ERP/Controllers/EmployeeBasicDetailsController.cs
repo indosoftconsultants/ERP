@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Nancy.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,22 +55,60 @@ namespace ERP.Controllers
         // POST: EmployeeBasicDetailsController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public   ActionResult Create(EmployeeBasicDetailsModel emp)
+        #region
+        //public   ActionResult Create(EmployeeBasicDetailsModel emp)
+        //{
+        //    try
+        //    {
+        //        using (var client = new HttpClient())
+        //        {
+        //            client.BaseAddress = new Uri("http://192.168.10.34:81/api/EmployeeBasicDetails");
+
+        //            //HTTP POST
+        //            var postTask = client.PostAsJsonAsync<EmployeeBasicDetailsModel>(client.BaseAddress, emp);
+        //            postTask.Wait();
+
+        //            var result = postTask.Result;
+        //            if (result.IsSuccessStatusCode)                  
+        //            {
+        //                _notyf.Success("Successfully Added");
+        //                return RedirectToAction("create");
+        //            }
+        //            else
+        //            {
+        //                _notyf.Custom("Unable To Save", 5, "#FA5F55", "fa fa-exclamation-circle");
+        //            }
+        //        }
+
+        //        ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+        //        return RedirectToAction("create");
+        //        //return View("Index");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return View();
+        //    }
+        //}
+
+        #endregion
+
+        public async Task<ActionResult> Create(EmployeeBasicDetailsModel emp)
         {
             try
             {
                 using (var client = new HttpClient())
                 {
                     client.BaseAddress = new Uri("http://192.168.10.34:81/api/EmployeeBasicDetails");
-
-                    //HTTP POST
-                    var postTask = client.PostAsJsonAsync<EmployeeBasicDetailsModel>(client.BaseAddress, emp);
-                    postTask.Wait();
-
-                    var result = postTask.Result;
-                    if (result.IsSuccessStatusCode)
+                    var stringContent = new StringContent(JsonConvert.SerializeObject(emp), Encoding.UTF8, "application/json");
+                    HttpResponseMessage postTask = await client.PostAsync(Convert.ToString(client.BaseAddress), stringContent);
+                    var result = postTask.Content;
+                    var jsonString = postTask.Content.ReadAsStringAsync().Result;
+                    int LastId = int.Parse(jsonString);
+                    TempData["LastId"] = LastId;
+                    if (LastId > 0)
                     {
-                        _notyf.Success("Successfully Added");
+                        _notyf.Success("Successfully Added" +LastId);
+                        //return null;
                         return RedirectToAction("create");
                     }
                     else
@@ -77,18 +116,16 @@ namespace ERP.Controllers
                         _notyf.Custom("Unable To Save", 5, "#FA5F55", "fa fa-exclamation-circle");
                     }
                 }
-
                 ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
                 return RedirectToAction("create");
-                //return View("Index");
             }
             catch (Exception ex)
-            {
-                return View();
+            {               
+                return RedirectToAction("create");
             }
         }
 
-        // GET: EmployeeBasicDetailsController/Edit/5
+
         public ActionResult Edit(int id)
         {
             return View();

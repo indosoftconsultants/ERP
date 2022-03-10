@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ERP.Models.DesignationMasterModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<button type="button" class="btn  btn-icon-text btn-sm rounded-1" onclick="location.href='@Url.Action("Create", "Designation")'">
+    @*<i class="mdi mdi-plus-circle"></i>*@
+    <i class="bi bi-plus-circle-fill"></i>
+    Add
+</button>
+</p>
+<br />
+@using (Html.BeginForm("getdata", "Designation", FormMethod.Get))@*onclick load table*@
+{
+    <button type="submit" class="btn btn-info rounded-3 btn-sm">Show List</button>
+}
+<br />
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            @*<h4 class="card-title">Country List</h4>*@
+            <div class="table table-responsive" style="height: 380px; overflow: auto;width:auto">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Id)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DesignationName)
+                            </th>
+                            
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null)
+                        {
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Id)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DesignationName)
+                                    </td>
+
+                                    <td>
+                                        @Html.ActionLink("", "Edit", new { id = item.Id }, new { @id = "btnedit", @class = "mdi mdi-pencil btn-info btn-sm", title = "Edit" }) |
+                                        @Html.ActionLink("", "Delete", new { id = item.Id }, new { @class = "mdi mdi-delete btn-danger btn-sm", title = "Delete" })
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

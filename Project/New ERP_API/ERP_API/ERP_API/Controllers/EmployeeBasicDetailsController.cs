@@ -28,37 +28,87 @@ namespace ERP_API.Controllers
             return "value";
         }
 
-        // POST api/<EmployeeBasicDetailsController>
+
+        //[HttpPost]
+        //public PostResult Post([FromBody] EmployeeBasicDetailsModel value)
+        //{
+        //    try
+        //    {
+        //        if (value != null)
+        //        {
+        //            if (EmployeeBasicDetailsModel.Insert(value))
+        //            {
+        //                return new PostResult(true);
+        //            }
+        //            else
+        //                return new PostResult(false);
+        //        }
+        //        return new PostResult(EmployeeBasicDetailsModel.errorMsg);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return new PostResult("Error : " + ex.Message);
+        //    }
+        //}
+
+        //[HttpPost]
+        //public PostResult Post([FromBody] EmployeeBasicDetailsModel value)
+        //{
+        //    try
+        //    {
+        //        if (value != null)
+        //        {
+        //            var a = EmployeeBasicDetailsModel.InsertReturnId(value);
+
+        //            if (a>0)
+        //            {
+        //                return new PostResult(true);
+        //            }
+        //            else
+        //                return new PostResult(false);
+        //        }
+        //        return new PostResult(EmployeeBasicDetailsModel.errorMsg);
+        //        }
+        //    catch (Exception ex)
+        //    {
+        //        return new PostResult("Error : " + ex.Message);
+        //    }
+        //}
+
         [HttpPost]
-        public PostResult Post([FromBody] EmployeeBasicDetailsModel value)
+        public int Post([FromBody] EmployeeBasicDetailsModel value)
         {
             try
             {
                 if (value != null)
                 {
-                    if (EmployeeBasicDetailsModel.Insert(value))
-                    {
-                        return new PostResult(true);
+                    var LastId = EmployeeBasicDetailsModel.InsertReturnId(value);
 
+                    if (LastId > 0)
+                    {
+
+                        return LastId;
                     }
                     else
-                        return new PostResult(false);
+                        return 0;
                 }
-                return new PostResult(EmployeeBasicDetailsModel.errorMsg);
+                return 0;
             }
             catch (Exception ex)
             {
-                return new PostResult("Error : " + ex.Message);
+                return 0;
             }
         }
 
-        // PUT api/<EmployeeBasicDetailsController>/5
+
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<EmployeeBasicDetailsController>/5
+
+
+       
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

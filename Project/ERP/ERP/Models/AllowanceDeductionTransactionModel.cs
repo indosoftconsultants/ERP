@@ -1,3 +1,4 @@
+
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -40,3 +41,4 @@ namespace ERP.Models
         public string LastEditedDate { get; set; }
     }
 }
+

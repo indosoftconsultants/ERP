@@ -84,7 +84,7 @@ namespace ERP.Controllers
                 {
                     client.BaseAddress = new Uri("http://192.168.10.34:81/api/Country");
 
-                    //HTTP POST
+                    
                     var postTask = client.PostAsJsonAsync<CountryModel>(client.BaseAddress ,collection);
                     postTask.Wait();
 
@@ -116,7 +116,23 @@ namespace ERP.Controllers
 
         }
 
-        
+        //[HttpGet("{id:int}")]
+        //public async Task<ActionResult<CountryModel>> GetCountryById(int id)
+        //{
+        //    try
+        //    {
+        //        var result = await employeeRepository.GetEmployee(id);
+
+        //        if (result == null) return NotFound();
+
+        //        return result;
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return StatusCode(StatusCodes.Status500InternalServerError,
+        //            "Error retrieving data from the database");
+        //    }
+        //}
 
         // POST: CountryController/Edit/5
         [HttpPost]

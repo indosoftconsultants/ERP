@@ -19,8 +19,8 @@
         <div class="card">
             <div class="card-body">
                 <div class="table table-responsive" style="height: 380px; overflow: auto;width:auto">
-                    <table class="table table-striped">
-                        <thead>
+                    <table class="table table-striped ">
+                        <thead class=".bg-warning .text-white">
                             <tr>
                                 <th>
                                     @Html.DisplayNameFor(model => model.Id)
@@ -56,7 +56,7 @@
                                 </td>
                                 <td>
                                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @id = "btnedit", @class = "mdi mdi-pencil btn-primary btn-sm", title = "Edit" }) |
-
+                                    
                                     @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "mdi mdi-delete btn-danger btn-sm", title = "Delete" })
                                 </td>
                             </tr>

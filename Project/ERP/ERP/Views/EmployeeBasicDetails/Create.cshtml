@@ -5,90 +5,109 @@
     //Layout = "Create.cshtml";
 }
 
-
-
-<div class="row w-100">
+<!-- #region Form -->
+<!--<div class="row w-100">
     <div class="col-md-12">
         <form asp-action="Create">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-       
+
     <div class="col-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                
-                <div class="row">
-                    <div class="form col">
 
-                        @*<label asp-for="NamePrefix" class="control-label"></label>
-        <select asp-for="NamePrefix" class="form-control">
-            <option value="">N/A</option>
-            <option value="1">Mr</option>
-            <option value="2">Mrs</option>
-            <option value="3">Ms</option>
-        </select>
-        <span asp-validation-for="NamePrefix" class="text-danger"></span>
-        &nbsp;&nbsp;*@
-                        <label>Name Prefix</label>
-                        <br />
-                        @Html.DropDownListFor(m => m.NamePrefix, new SelectList(@ViewBag.List_GetNamePrefix, "Id", "PrefixName"), "--Select--"
-                                               , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
-                        <span asp-validation-for="NamePrefix" class="text-danger"></span>
-                    </div>
-                    <div class="col">
-                        <div class="form-group">
-                            @*<div class="form-floating mb-3 ">
-                                <input asp-for="FirstName"  class="form-control" id="floatingInput" placeholder="name@example.com">
-                                <label for="floatingInput">Enter First Name</label>
-                            </div>*@
-                            <label asp-for="FirstName" class="control-label"></label>
-                            <input asp-for="FirstName" class="form-control " />
-                            <span asp-validation-for="FirstName" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-group">
-                            <label asp-for="MiddleName" class="control-label"></label>
-                            <input asp-for="MiddleName" class="form-control" />
-                            <span asp-validation-for="MiddleName" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-group">
-                            <label asp-for="LastName" class="control-label"></label>
-                            <input asp-for="LastName" class="form-control" />
-                            <span asp-validation-for="LastName" class="text-danger"></span>
-                        </div>
+                <div class="row">
+                    <div class="form col">-->
+@*<label asp-for="NamePrefix" class="control-label"></label>
+    <select asp-for="NamePrefix" class="form-control">
+        <option value="">N/A</option>
+        <option value="1">Mr</option>
+        <option value="2">Mrs</option>
+        <option value="3">Ms</option>
+    </select>
+    <span asp-validation-for="NamePrefix" class="text-danger"></span>
+    &nbsp;&nbsp;*@
+<!--<label>Name Prefix</label>
+    <br />
+    @Html.DropDownListFor(m => m.NamePrefix, new SelectList(@ViewBag.List_GetNamePrefix, "Id", "PrefixName"), "--Select--"
+                           , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
+    <span asp-validation-for="NamePrefix" class="text-danger"></span>
+</div>
+<div class="col">
+    <div class="form-group">-->
+@*<div class="form-floating mb-3 ">
+        <input asp-for="FirstName"  class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Enter First Name</label>
+    </div>*@
+<!--<label asp-for="FirstName" class="control-label"></label>
+                        <input asp-for="FirstName" class="form-control " />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
                     </div>
                 </div>
-                <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="MiddleName" class="control-label"></label>
+                        <input asp-for="MiddleName" class="form-control" />
+                        <span asp-validation-for="MiddleName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="LastName" class="control-label"></label>
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group  ">
+                        <label>Maritial Status</label>
+                        <br />
+                        @Html.DropDownListFor(m => m.MaritialStatusId, new SelectList(@ViewBag.List_GetMaritialStatus, "Id", "MaritialStatus"), "--Select--"
+                                               , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
+                        <span asp-validation-for="MaritialStatusId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="SpouseName" class="control-label"></label>
+                        <input asp-for="SpouseName" class="form-control" />
+                        <span asp-validation-for="SpouseName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="NoOfGirlChild" class="control-label"></label>
+                        <input asp-for="NoOfGirlChild" class="form-control" />
+                        <span asp-validation-for="NoOfGirlChild" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="NoOfBoyChild" class="control-label"></label>
+                        <input asp-for="NoOfBoyChild" class="form-control" />
+                        <span asp-validation-for="NoOfBoyChild" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <hr style="background-color:black;height:0.5px" />
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                </div>
                     <div class="col">
-                        <div class="form-group  ">
-                            <label>Maritial Status</label>
+                        <div class="form-group">
+                            <label>Gender</label>
                             <br />
-                            @Html.DropDownListFor(m => m.MaritialStatusId, new SelectList(@ViewBag.List_GetMaritialStatus, "Id", "MaritialStatus"), "--Select--"
-                                                   , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
-                            <span asp-validation-for="MaritialStatusId" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-group">
-                            <label asp-for="SpouseName" class="control-label"></label>
-                            <input asp-for="SpouseName" class="form-control" />
-                            <span asp-validation-for="SpouseName" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-group">
-                            <label asp-for="NoOfGirlChild" class="control-label"></label>
-                            <input asp-for="NoOfGirlChild" class="form-control" />
-                            <span asp-validation-for="NoOfGirlChild" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-group">
-                            <label asp-for="NoOfBoyChild" class="control-label"></label>
-                            <input asp-for="NoOfBoyChild" class="form-control" />
-                            <span asp-validation-for="NoOfBoyChild" class="text-danger"></span>
+                            @Html.DropDownListFor(m => m.GenderId, new SelectList(@ViewBag.List_GetGender, "Id", "GenderName"), "--Select--"
+                                                   , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-75 rounded-1  " })
+                            <span asp-validation-for="GenderId" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
@@ -96,232 +115,559 @@
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
-                            <label asp-for="Email" class="control-label"></label>
-                            <input asp-for="Email" class="form-control" />
-                            <span asp-validation-for="Email" class="text-danger"></span>
+                            <label asp-for="Height" class="control-label"></label>
+                            <input asp-for="Height" class="form-control" />
+                            <span asp-validation-for="Height" class="text-danger"></span>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                    </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label>Gender</label>
-                                <br />
-                                @Html.DropDownListFor(m => m.GenderId, new SelectList(@ViewBag.List_GetGender, "Id", "GenderName"), "--Select--"
-                                                       , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-75 rounded-1  " })
-                                <span asp-validation-for="GenderId" class="text-danger"></span>
-                            </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="Weight" class="control-label"></label>
+                            <input asp-for="Weight" class="form-control" />
+                            <span asp-validation-for="Weight" class="text-danger"></span>
                         </div>
                     </div>
-                    <hr style="background-color:black;height:0.5px" />
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label asp-for="Height" class="control-label"></label>
-                                <input asp-for="Height" class="form-control" />
-                                <span asp-validation-for="Height" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label asp-for="Weight" class="control-label"></label>
-                                <input asp-for="Weight" class="form-control" />
-                                <span asp-validation-for="Weight" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label asp-for="DateOfBirth" class="control-label"></label>
-                                <input asp-for="DateOfBirth" class="form-control" />
-                                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <hr style="background-color:black;height:0.5px" />
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="form">
-                                <label asp-for="CurrentPinCode" class="control-label"></label>
-                                <input asp-for="CurrentPinCode" class="form-control" />
-                                <span asp-validation-for="CurrentPinCode" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form">
-                                <label>Current State</label>
-                                <br />
-                                @Html.DropDownListFor(m => m.CurrentStateId, new SelectList(@ViewBag.StateList, "Id", "StateName"), "--Select--"
-                                                       , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form">
-                                <label>Current City</label>
-                                <br />
-                                @Html.DropDownListFor(m => m.CurrentCityId, new SelectList(@ViewBag.CityList, "Id", "CityName"), "--Select--"
-                                                       , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
-                            </div>
-                        </div>
-                    </div>
-                    <hr style="background-color:black;height:0.5px" />
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label asp-for="PermanentPinCode" class="control-label"></label>
-                                <input asp-for="PermanentPinCode" class="form-control" />
-                                <span asp-validation-for="PermanentPinCode" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label>Permanent State</label>
-                                <br />
-                                @Html.DropDownListFor(m => m.PermanentStateId, new SelectList(@ViewBag.StateList, "Id", "StateName"), "--Select--"
-                                                       , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label>Permanent City</label>
-                                <br />
-                                @Html.DropDownListFor(m => m.PermanentCityId, new SelectList(@ViewBag.CityList, "Id", "CityName"), "--Select--"
-                                                       , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
-                            </div>
-                        </div>
-                    </div>
-                    <hr style="background-color:black;height:0.5px" />
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label asp-for="MobileNumber" class="control-label"></label>
-                                <input asp-for="MobileNumber" class="form-control" />
-                                <span asp-validation-for="MobileNumber" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label asp-for="AlternateMobileNumber" class="control-label"></label>
-                                <input asp-for="AlternateMobileNumber" class="form-control" />
-                                <span asp-validation-for="AlternateMobileNumber" class="text-danger"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <hr style="background-color:black;height:0.5px" />
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label asp-for="PassportNumber" class="control-label"></label>
-                                <input asp-for="PassportNumber" class="form-control" />
-                                <span asp-validation-for="PassportNumber" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label asp-for="AadhaarNumber" class="control-label"></label>
-                                <input asp-for="AadhaarNumber" class="form-control" />
-                                <span asp-validation-for="AadhaarNumber" class="text-danger"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <hr style="background-color:black;height:0.5px" />
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label asp-for="DrivingLicenseNumber" class="control-label"></label>
-                                <input asp-for="DrivingLicenseNumber" class="form-control" />
-                                <span asp-validation-for="DrivingLicenseNumber" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label asp-for="DrivingLiscenseExpiryDate" class="control-label"></label>
-                                <input asp-for="DrivingLiscenseExpiryDate" class="form-control" />
-                                <span asp-validation-for="DrivingLiscenseExpiryDate" class="text-danger"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <hr style="background-color:black;height:0.5px" />
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label asp-for="ReferencePerson1" class="control-label"></label>
-                                <input asp-for="ReferencePerson1" class="form-control" />
-                                <span asp-validation-for="ReferencePerson1" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label asp-for="ReferencePerson2" class="control-label"></label>
-                                <input asp-for="ReferencePerson2" class="form-control" />
-                                <span asp-validation-for="ReferencePerson2" class="text-danger"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label asp-for="ReferencePerson1Contact" class="control-label"></label>
-                                <input asp-for="ReferencePerson1Contact" class="form-control" />
-                                <span asp-validation-for="ReferencePerson1Contact" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label asp-for="ReferencePerson2Contact" class="control-label"></label>
-                                <input asp-for="ReferencePerson2Contact" class="form-control" />
-                                <span asp-validation-for="ReferencePerson2Contact" class="text-danger"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <hr style="background-color:black;height:0.5px" />
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label asp-for="PANCardNumber" class="control-label"></label>
-                                <input asp-for="PANCardNumber" class="form-control" />
-                                <span asp-validation-for="PANCardNumber" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label>Education</label>
-                                <br />
-                                @Html.DropDownListFor(m => m.EducationId, new SelectList(@ViewBag.List_GetEducation, "Id", "EducationName"), "--Select--"
-                                                       , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
-                                <span asp-validation-for="EducationId" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label asp-for="ProvidentFundNumber" class="control-label"></label>
-                                <input asp-for="ProvidentFundNumber" class="form-control" />
-                                <span asp-validation-for="ProvidentFundNumber" class="text-danger"></span>
-                            </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="DateOfBirth" class="control-label"></label>
+                            <input asp-for="DateOfBirth" class="form-control" />
+                            <span asp-validation-for="DateOfBirth" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
-                  </div>
-        </div>
+                <hr style="background-color:black;height:0.5px" />
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form">
+                            <label asp-for="CurrentPinCode" class="control-label"></label>
+                            <input asp-for="CurrentPinCode" class="form-control" />
+                            <span asp-validation-for="CurrentPinCode" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form">
+                            <label>Current State</label>
+                            <br />
+                            @Html.DropDownListFor(m => m.CurrentStateId, new SelectList(@ViewBag.StateList, "Id", "StateName"), "--Select--"
+                                                   , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form">
+                            <label>Current City</label>
+                            <br />
+                            @Html.DropDownListFor(m => m.CurrentCityId, new SelectList(@ViewBag.CityList, "Id", "CityName"), "--Select--"
+                                                   , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
+                        </div>
+                    </div>
+                </div>
+                <hr style="background-color:black;height:0.5px" />
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label asp-for="PermanentPinCode" class="control-label"></label>
+                            <input asp-for="PermanentPinCode" class="form-control" />
+                            <span asp-validation-for="PermanentPinCode" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Permanent State</label>
+                            <br />
+                            @Html.DropDownListFor(m => m.PermanentStateId, new SelectList(@ViewBag.StateList, "Id", "StateName"), "--Select--"
+                                                   , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Permanent City</label>
+                            <br />
+                            @Html.DropDownListFor(m => m.PermanentCityId, new SelectList(@ViewBag.CityList, "Id", "CityName"), "--Select--"
+                                                   , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
+                        </div>
+                    </div>
+                </div>
+                <hr style="background-color:black;height:0.5px" />
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="MobileNumber" class="control-label"></label>
+                            <input asp-for="MobileNumber" class="form-control" />
+                            <span asp-validation-for="MobileNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="AlternateMobileNumber" class="control-label"></label>
+                            <input asp-for="AlternateMobileNumber" class="form-control" />
+                            <span asp-validation-for="AlternateMobileNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <hr style="background-color:black;height:0.5px" />
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="PassportNumber" class="control-label"></label>
+                            <input asp-for="PassportNumber" class="form-control" />
+                            <span asp-validation-for="PassportNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="AadhaarNumber" class="control-label"></label>
+                            <input asp-for="AadhaarNumber" class="form-control" />
+                            <span asp-validation-for="AadhaarNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <hr style="background-color:black;height:0.5px" />
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="DrivingLicenseNumber" class="control-label"></label>
+                            <input asp-for="DrivingLicenseNumber" class="form-control" />
+                            <span asp-validation-for="DrivingLicenseNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="DrivingLiscenseExpiryDate" class="control-label"></label>
+                            <input asp-for="DrivingLiscenseExpiryDate" class="form-control" />
+                            <span asp-validation-for="DrivingLiscenseExpiryDate" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <hr style="background-color:black;height:0.5px" />
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="ReferencePerson1" class="control-label"></label>
+                            <input asp-for="ReferencePerson1" class="form-control" />
+                            <span asp-validation-for="ReferencePerson1" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="ReferencePerson2" class="control-label"></label>
+                            <input asp-for="ReferencePerson2" class="form-control" />
+                            <span asp-validation-for="ReferencePerson2" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="ReferencePerson1Contact" class="control-label"></label>
+                            <input asp-for="ReferencePerson1Contact" class="form-control" />
+                            <span asp-validation-for="ReferencePerson1Contact" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="ReferencePerson2Contact" class="control-label"></label>
+                            <input asp-for="ReferencePerson2Contact" class="form-control" />
+                            <span asp-validation-for="ReferencePerson2Contact" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="form-group">
-        @*<input type="submit" value="Create" class="btn btn-primary" />*@
-        <button type="submit" class="btn btn-primary btn-icon-text btn-sm rounded-0">
-            <i class="ti-file btn-icon-prepend"></i>
-            Submit
-        </button>
-        &nbsp;
-        <button id="ToastNotification" type="button" class="btn btn-dark btn-sm rounded-0" onclick="location.href='@Url.Action("Index", "EmployeeBasicDetails")'">Back</button>
+                <hr style="background-color:black;height:0.5px" />
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="PANCardNumber" class="control-label"></label>
+                            <input asp-for="PANCardNumber" class="form-control" />
+                            <span asp-validation-for="PANCardNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Education</label>
+                            <br />
+                            @Html.DropDownListFor(m => m.EducationId, new SelectList(@ViewBag.List_GetEducation, "Id", "EducationName"), "--Select--"
+                                                   , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
+                            <span asp-validation-for="EducationId" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="ProvidentFundNumber" class="control-label"></label>
+                            <input asp-for="ProvidentFundNumber" class="form-control" />
+                            <span asp-validation-for="ProvidentFundNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+              </div>
     </div>
-                </form>
+
+<div class="form-group">-->
+@*<input type="submit" value="Create" class="btn btn-primary" />*@
+<!--<button type="submit" class="btn btn-primary btn-icon-text btn-sm rounded-0">
+           <i class="ti-file btn-icon-prepend"></i>
+           Submit
+       </button>
+       &nbsp;
+       <button id="ToastNotification" type="button" class="btn btn-dark btn-sm rounded-0" onclick="location.href='@Url.Action("Index", "EmployeeBasicDetails")'">Back</button>
+        </div>
+    </form>
+   </div>
+</div>-->
+
+<!-- #endregion -->
+
+<div class="panel panel-default" style="width: auto; margin: 10px">
+    <div id="Tabs" role="tabpanel">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist" @*style="background-color: #AFDCEC "*@>
+            <li class="active">
+                <a href="#personal" aria-controls="personal" role="tab" data-toggle="tab" title="Fill Employees Basic Details" class="btn btn-warning rounded-0">
+                    Basic Details
+                </a>
+            </li>
+
+            <li>
+                <a href="#employment" aria-controls="employment" role="tab" data-toggle="tab"  class="btn btn-danger rounded-0">
+                    New Tab
+                </a>
+            </li>
+
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content" style="padding-top: 20px; background-color: #E8E8E8">
+            <div role="tabpanel" class="tab-pane active" id="personal">
+                <div class="row w-100">
+                    <div class="col-md-12">
+                        <form asp-action="Create">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="col-12 grid-margin">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="form col-md-4">
+                                                <div class="form-group">
+                                                    <label> Employee ID</label>
+                                                    <input asp-for="EmpId" class="form-control" id="EmployeeId" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row">
+                                            <div class="form col">
+                                                <label>Name Prefix</label>
+                                                <br />
+                                                @Html.DropDownListFor(m => m.NamePrefix, new SelectList(@ViewBag.List_GetNamePrefix, "Id", "PrefixName"), "--Select--"
+                                                                       , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
+                                                <span asp-validation-for="NamePrefix" class="text-danger"></span>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label asp-for="FirstName" class="control-label"></label>
+                                                    <input asp-for="FirstName" class="form-control " />
+                                                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label asp-for="MiddleName" class="control-label"></label>
+                                                    <input asp-for="MiddleName" class="form-control" />
+                                                    <span asp-validation-for="MiddleName" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label asp-for="LastName" class="control-label"></label>
+                                                    <input asp-for="LastName" class="form-control" />
+                                                    <span asp-validation-for="LastName" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group  ">
+                                                    <label>Maritial Status</label>
+                                                    <br />
+                                                    @Html.DropDownListFor(m => m.MaritialStatusId, new SelectList(@ViewBag.List_GetMaritialStatus, "Id", "MaritialStatus"), "--Select--"
+                                                                           , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
+                                                    <span asp-validation-for="MaritialStatusId" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label asp-for="SpouseName" class="control-label"></label>
+                                                    <input asp-for="SpouseName" class="form-control" />
+                                                    <span asp-validation-for="SpouseName" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label asp-for="NoOfGirlChild" class="control-label"></label>
+                                                    <input asp-for="NoOfGirlChild" class="form-control" />
+                                                    <span asp-validation-for="NoOfGirlChild" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label asp-for="NoOfBoyChild" class="control-label"></label>
+                                                    <input asp-for="NoOfBoyChild" class="form-control" />
+                                                    <span asp-validation-for="NoOfBoyChild" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr style="background-color:black;height:0.5px" />
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label asp-for="Email" class="control-label"></label>
+                                                    <input asp-for="Email" class="form-control" />
+                                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label>Gender</label>
+                                                    <br />
+                                                    @Html.DropDownListFor(m => m.GenderId, new SelectList(@ViewBag.List_GetGender, "Id", "GenderName"), "--Select--"
+                                                                           , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-75 rounded-1  " })
+                                                    <span asp-validation-for="GenderId" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr style="background-color:black;height:0.5px" />
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label asp-for="Height" class="control-label"></label>
+                                                    <input asp-for="Height" class="form-control" />
+                                                    <span asp-validation-for="Height" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label asp-for="Weight" class="control-label"></label>
+                                                    <input asp-for="Weight" class="form-control" />
+                                                    <span asp-validation-for="Weight" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label asp-for="DateOfBirth" class="control-label"></label>
+                                                    <input asp-for="DateOfBirth" class="form-control" />
+                                                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr style="background-color:black;height:0.5px" />
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form">
+                                                    <label asp-for="CurrentPinCode" class="control-label"></label>
+                                                    <input asp-for="CurrentPinCode" class="form-control" />
+                                                    <span asp-validation-for="CurrentPinCode" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form">
+                                                    <label>Current State</label>
+                                                    <br />
+                                                    @Html.DropDownListFor(m => m.CurrentStateId, new SelectList(@ViewBag.StateList, "Id", "StateName"), "--Select--"
+                                                                           , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
+                                                    <span asp-validation-for="CurrentStateId" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form">
+                                                    <label>Current City</label>
+                                                    <br />
+                                                    @Html.DropDownListFor(m => m.CurrentCityId, new SelectList(@ViewBag.CityList, "Id", "CityName"), "--Select--"
+                                                                           , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
+                                                    <span asp-validation-for="CurrentCityId" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr style="background-color:black;height:0.5px" />
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label asp-for="PermanentPinCode" class="control-label"></label>
+                                                    <input asp-for="PermanentPinCode" class="form-control" />
+                                                    <span asp-validation-for="PermanentPinCode" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label>Permanent State</label>
+                                                    <br />
+                                                    @Html.DropDownListFor(m => m.PermanentStateId, new SelectList(@ViewBag.StateList, "Id", "StateName"), "--Select--"
+                                                                           , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
+                                                    <span asp-validation-for="PermanentStateId" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label>Permanent City</label>
+                                                    <br />
+                                                    @Html.DropDownListFor(m => m.PermanentCityId, new SelectList(@ViewBag.CityList, "Id", "CityName"), "--Select--"
+                                                                           , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
+                                                    <span asp-validation-for="PermanentCityId" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr style="background-color:black;height:0.5px" />
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label asp-for="MobileNumber" class="control-label"></label>
+                                                    <input asp-for="MobileNumber" class="form-control" />
+                                                    <span asp-validation-for="MobileNumber" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label asp-for="AlternateMobileNumber" class="control-label"></label>
+                                                    <input asp-for="AlternateMobileNumber" class="form-control" />
+                                                    <span asp-validation-for="AlternateMobileNumber" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr style="background-color:black;height:0.5px" />
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label asp-for="PassportNumber" class="control-label"></label>
+                                                    <input asp-for="PassportNumber" class="form-control" />
+                                                    <span asp-validation-for="PassportNumber" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label asp-for="AadhaarNumber" class="control-label"></label>
+                                                    <input asp-for="AadhaarNumber" class="form-control" />
+                                                    <span asp-validation-for="AadhaarNumber" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr style="background-color:black;height:0.5px" />
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label asp-for="DrivingLicenseNumber" class="control-label"></label>
+                                                    <input asp-for="DrivingLicenseNumber" class="form-control" />
+                                                    <span asp-validation-for="DrivingLicenseNumber" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label asp-for="DrivingLiscenseExpiryDate" class="control-label"></label>
+                                                    <input asp-for="DrivingLiscenseExpiryDate" class="form-control" />
+                                                    <span asp-validation-for="DrivingLiscenseExpiryDate" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr style="background-color:black;height:0.5px" />
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label asp-for="ReferencePerson1" class="control-label"></label>
+                                                    <input asp-for="ReferencePerson1" class="form-control" />
+                                                    <span asp-validation-for="ReferencePerson1" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label asp-for="ReferencePerson2" class="control-label"></label>
+                                                    <input asp-for="ReferencePerson2" class="form-control" />
+                                                    <span asp-validation-for="ReferencePerson2" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label asp-for="ReferencePerson1Contact" class="control-label"></label>
+                                                    <input asp-for="ReferencePerson1Contact" class="form-control" />
+                                                    <span asp-validation-for="ReferencePerson1Contact" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label asp-for="ReferencePerson2Contact" class="control-label"></label>
+                                                    <input asp-for="ReferencePerson2Contact" class="form-control" />
+                                                    <span asp-validation-for="ReferencePerson2Contact" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <hr style="background-color:black;height:0.5px" />
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label asp-for="PANCardNumber" class="control-label"></label>
+                                                    <input asp-for="PANCardNumber" class="form-control" />
+                                                    <span asp-validation-for="PANCardNumber" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label>Education</label>
+                                                    <br />
+                                                    @Html.DropDownListFor(m => m.EducationId, new SelectList(@ViewBag.List_GetEducation, "Id", "EducationName"), "--Select--"
+                                                                           , new { @id = "ddlCountry", @class = "btn btn-success dropdown-toggle btn-sm w-100 rounded-1  " })
+                                                    <span asp-validation-for="EducationId" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label asp-for="ProvidentFundNumber" class="control-label"></label>
+                                                    <input asp-for="ProvidentFundNumber" class="form-control" />
+                                                    <span asp-validation-for="ProvidentFundNumber" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @*<input type="submit" value="Create" class="btn btn-primary" />*@
+                                <button type="submit" class="btn btn-primary btn-icon-text btn-sm rounded-0">
+                                    <i class="ti-file btn-icon-prepend"></i>
+                                    Submit
+                                </button>
+                                &nbsp;
+                                <button id="ToastNotification" type="button" class="btn btn-dark btn-sm rounded-0" onclick="location.href='@Url.Action("Index", "EmployeeBasicDetails")'">Back</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="employment">
+                @{
+                   await Html.RenderPartialAsync("~/Views/EmployeeOtherDetails/Index.cshtml");
+                 }
+
+                @*@using (Html.BeginForm("EmployeeOtherDetails", "EmployeeOtherDetails", FormMethod.Post))
+        {
+        <input type="type" name="name" value="" />
+        }*@
+
+                
+
             </div>
         </div>
-   
-   
+    </div>
+</div>
 
 
-                    @section Scripts {
-                        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
 
-                    }
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        $('#EmployeeId').prop('disabled', true);
+    </script>
+}

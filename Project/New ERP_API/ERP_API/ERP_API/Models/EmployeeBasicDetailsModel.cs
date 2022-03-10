@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
@@ -91,7 +92,7 @@ namespace ERP_API.Models
         public string LastCompanyName { get; set; }
         public string LastEditedDate { get; set; }
 
-
+        public int LastEmployeeid { get; set; }
 
         public static SqlConnection con = new SqlConnection();
         public static bool errorMsg;
@@ -109,6 +110,7 @@ namespace ERP_API.Models
             Add.LastEditedDate = Convert.ToString(DateTime.Today);
             try
             {
+                int LastId = Add.LastEmployeeid;
                 Hashtable hash = new Hashtable();
                 hash.Add("@Id                           "  ,Add.Id);
                 hash.Add("@NamePrefix                   "  ,Add.NamePrefix);
@@ -154,12 +156,100 @@ namespace ERP_API.Models
                 hash.Add("@LastCompanyName              "  ,Add.LastCompanyName);
                 hash.Add("@LastEditedDate               "  ,Add.LastEditedDate);
 
-                DataLayer.ExecuteDMLQuery("InsUpd_EmployeeBasicDetail", hash);
+                // var lastId =    DataLayer.ExecuteDMLQuery("InsUpd_EmployeeBasicDetail", hash);
+
+                DataTable id  =    DataLayer.FillDataTable("InsUpd_EmployeeBasicDetail", hash);
+                LastId = int.Parse(id.Rows[0][0].ToString());
                 return true;
             }
             catch (Exception Ex)
             {
                 return false;
+            }
+        }
+
+        public static int InsertReturnId(EmployeeBasicDetailsModel Add)
+        {
+
+            Add.EntryDate = Convert.ToString(DateTime.Today);
+            Add.EntryBy = "a";
+            Add.CompanyName = "a";
+            Add.PassedBy = "a";
+            Add.PassCompanyName = "a";
+            Add.LastEditedBy = "a";
+            Add.LastCompanyName = "a";
+            Add.LastEditedDate = Convert.ToString(DateTime.Today);
+            try
+            {
+                int LastId = Add.LastEmployeeid;
+                Hashtable hash = new Hashtable();
+                hash.Add("@Id                           ", Add.Id);
+                hash.Add("@NamePrefix                   ", Add.NamePrefix);
+                hash.Add("@FirstName                    ", Add.FirstName);
+                hash.Add("@MiddleName                   ", Add.MiddleName);
+                hash.Add("@LastName                     ", Add.LastName);
+                hash.Add("@Email                        ", Add.Email);
+                hash.Add("@GenderId                     ", Add.GenderId);
+                hash.Add("@CurrentAddress               ", Add.CurrentAddress);
+                hash.Add("@PermanentAddress             ", Add.PermanentAddress);
+                hash.Add("@PANCardNumber                ", Add.PANCardNumber);
+                hash.Add("@EducationId                  ", Add.EducationId);
+                hash.Add("@ReferencePerson1             ", Add.ReferencePerson1);
+                hash.Add("@ReferencePerson2             ", Add.ReferencePerson2);
+                hash.Add("@ReferencePerson1Contact      ", Add.ReferencePerson1Contact);
+                hash.Add("@ReferencePerson2Contact      ", Add.ReferencePerson2Contact);
+                hash.Add("@CurrentPinCode               ", Add.CurrentPinCode);
+                hash.Add("@CurrentCityId                ", Add.CurrentCityId);
+                hash.Add("@CurrentStateId               ", Add.CurrentStateId);
+                hash.Add("@PermanentPinCode             ", Add.PermanentPinCode);
+                hash.Add("@PermanentCityId              ", Add.PermanentCityId);
+                hash.Add("@PermanentStateId             ", Add.PermanentStateId);
+                hash.Add("@MobileNumber                 ", Add.MobileNumber);
+                hash.Add("@AlternateMobileNumber        ", Add.AlternateMobileNumber);
+                hash.Add("@MaritialStatusId             ", Add.MaritialStatusId);
+                hash.Add("@PassportNumber               ", Add.PassportNumber);
+                hash.Add("@AadhaarNumber                ", Add.AadhaarNumber);
+                hash.Add("@DrivingLicenseNumber         ", Add.DrivingLicenseNumber);
+                hash.Add("@NoOfBoyChild                 ", Add.NoOfBoyChild);
+                hash.Add("@NoOfGirlChild                ", Add.NoOfGirlChild);
+                hash.Add("@Height                       ", Add.Height);
+                hash.Add("@Weight                       ", Add.Weight);
+                hash.Add("@SpouseName                   ", Add.SpouseName);
+                hash.Add("@DateOfBirth                  ", Add.DateOfBirth);
+                hash.Add("@DrivingLiscenseExpiryDate    ", Add.DrivingLiscenseExpiryDate);
+                hash.Add("@ProvidentFundNumber          ", Add.ProvidentFundNumber);
+                hash.Add("@EntryDate                    ", Add.EntryDate);
+                hash.Add("@EntryBy                      ", Add.EntryBy);
+                hash.Add("@CompanyName                  ", Add.CompanyName);
+                hash.Add("@PassedBy                     ", Add.PassedBy);
+                hash.Add("@PassCompanyName              ", Add.PassCompanyName);
+                hash.Add("@LastEditedBy                 ", Add.LastEditedBy);
+                hash.Add("@LastCompanyName              ", Add.LastCompanyName);
+                hash.Add("@LastEditedDate               ", Add.LastEditedDate);
+
+                // var lastId =    DataLayer.ExecuteDMLQuery("InsUpd_EmployeeBasicDetail", hash);
+
+                DataTable id = DataLayer.FillDataTable("InsUpd_EmployeeBasicDetail", hash);
+                LastId = int.Parse(id.Rows[0][0].ToString());
+                if (Add.Id > 0)
+                {
+                    return Add.Id;
+                }
+                else 
+                {
+                    return LastId;
+                }
+            }
+            catch (Exception Ex)
+            {
+                if(Add.Id > 0)
+                {
+                    return Add.Id;
+                }
+                else
+                {
+                    return 0;
+                }
             }
         }
     }

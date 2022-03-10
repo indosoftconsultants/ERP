@@ -1,5 +1,9 @@
-﻿using System;
+
+﻿using CustomerAPI.Models;
+using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -26,5 +30,30 @@ namespace ERP.Models
         public string LastCompanyName { get; set; }
 
         public string LastEditedDate { get; set; }
+
+         SqlConnection con = new SqlConnection();
+
+        public  List<DepartmentMasterModel> GetAllDepartment()
+        {
+            List<DepartmentMasterModel> List = new List<DepartmentMasterModel>();
+            DataLayer.Open(ref con);
+            SqlCommand com = new SqlCommand("Select * from DepartmentMaster", con);
+            SqlDataAdapter da = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            //Bind EmpModel generic list using dataRow     
+            foreach (DataRow dr in dt.Rows)
+            {
+                List.Add(
+                    new DepartmentMasterModel
+                    {
+                        Id = Convert.ToInt32(dr["Id"]),
+                        DepartmentName = Convert.ToString(dr["DepartmentName"])
+                    }
+                    );
+            }
+            DataLayer.Close(ref con);
+            return List;
+        }
     }
 }

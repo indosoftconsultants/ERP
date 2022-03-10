@@ -1,0 +1,110 @@
+﻿@model ERP.Models.EmployeeOtherDetailsModel
+
+
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <div class=" row d-flex justify-content-center">
+                <div class="col-md-10">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row">
+                            <div class="form col-md-4">
+                                <div class="form-group">
+                                    <label asp-for="EmployeeId" class="control-label"></label>
+                                    <input asp-for="EmployeeId" id="EmployeeId" class="form-control" />
+                                    <span asp-validation-for="EmployeeId" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form col-md-4">
+                            </div>
+                            <div class="form col-md-4 ">
+                                <div class="form-group">
+                                    <label asp-for="JoiningDate" class="control-label"></label>
+                                    <input asp-for="JoiningDate" class="form-control" />
+                                    <span asp-validation-for="JoiningDate" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="form col">
+                                <div class="form-group">
+                                    <label asp-for="Department" class="control-label"></label>
+                                    <input asp-for="Department" class="form-control" />
+                                    <span asp-validation-for="Department" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form col">
+                                <div class="form-group">
+                                    <label asp-for="Designation" class="control-label"></label>
+                                    <input asp-for="Designation" class="form-control" />
+                                    <span asp-validation-for="Designation" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="form col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="ShiftScheduleId" class="control-label"></label>
+                                    <input asp-for="ShiftScheduleId" class="form-control" />
+                                    <span asp-validation-for="ShiftScheduleId" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form col-md-4">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="WeeklyOff" class="control-label"></label>
+                                    <input asp-for="WeeklyOff" class="form-control" />
+                                    <span asp-validation-for="WeeklyOff" class="text-danger"></span>
+                                </div>
+                                <div class="form col-md-4">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form col-md-2">
+                                <div class="form-group form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" asp-for="IsResign" /> @Html.DisplayNameFor(model => model.IsResign)
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form col-md-4">
+                                <div class="form-group">
+                                    <label asp-for="ResignDate" class="control-label"></label>
+                                    <input asp-for="ResignDate" class="form-control" />
+                                    <span asp-validation-for="ResignDate" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@using (Html.BeginForm("Create", "EmployeeOtherDetails", FormMethod.Post))
+{
+    <button type="submit" class="btn btn-primary btn-icon-text btn-sm rounded-0">
+        <i class="ti-file btn-icon-prepend"></i>
+        Submit
+    </button>
+}
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $('#EmployeeId').prop('disabled', true);
+    </script>
+}

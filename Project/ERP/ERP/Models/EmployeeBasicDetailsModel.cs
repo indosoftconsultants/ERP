@@ -142,12 +142,15 @@ namespace ERP.Models
         [Display(Name = "Current PinCode")]
         public string CurrentPinCode { get; set; }   //
         [Display(Name = "Current City")]
+        [Required(ErrorMessage = "Select City")]
         public int CurrentCityId { get; set; }      //
         [Display(Name = "Current State")]
+        [Required(ErrorMessage = "Select State")]
         public int CurrentStateId { get; set; }     //
         [Display(Name = "Permanent PinCode")]
         public string PermanentPinCode { get; set; }   //
         [Display(Name = "Permanent City")]
+        [Required(ErrorMessage = "Select City")]
         public int PermanentCityId { get; set; }      //
         [Display(Name = "Permanent State")]
         public int PermanentStateId { get; set; }

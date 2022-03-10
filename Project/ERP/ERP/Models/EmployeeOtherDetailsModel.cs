@@ -1,5 +1,7 @@
+
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,6 +13,7 @@ namespace ERP.Models
 
         public int EmployeeId { get; set; }
 
+        [DataType(DataType.Date)] 
         public string JoiningDate { get; set; }
 
         public int Department { get; set; }
@@ -18,7 +21,7 @@ namespace ERP.Models
         public int Designation { get; set; }
 
         public bool IsResign { get; set; }
-
+        [DataType(DataType.Date)]
         public string ResignDate { get; set; }
 
         public int ShiftScheduleId { get; set; }
