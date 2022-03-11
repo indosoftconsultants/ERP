@@ -322,25 +322,41 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist" @*style="background-color: #AFDCEC "*@>
             <li class="active">
-                <a href="#personal" aria-controls="personal" role="tab" data-toggle="tab" title="Fill Employees Basic Details" class="btn btn-warning rounded-0">
+                <a href="#personal" aria-controls="personal" role="tab" data-toggle="tab" title="Fill Employees Basic Details" class="btn btn-outline-warning rounded-0">
                     Basic Details
                 </a>
             </li>
 
             <li>
-                <a href="#employment" id="otherdetails" aria-controls="employment" role="tab" data-toggle="tab" class="btn btn-danger rounded-0">
+                <a href="#OtherDetails" id="Other" aria-controls="OtherDetails" role="tab" data-toggle="tab" class="btn btn-outline-danger rounded-0">
                     Other Details
                 </a>
             </li>
 
             <li>
-                <a href="#BankDetails" id="Bank" aria-controls="BankDetails" role="tab" data-toggle="tab" class="btn btn-info rounded-0">
+                <a href="#BankDetails" id="Bank" aria-controls="BankDetails" role="tab" data-toggle="tab" class="btn btn-outline-info rounded-0">
                     Bank Details
+                </a>
+            </li>
+            <li>
+                <a href="#EducationDetails" id="Education" aria-controls="EducationDetails" role="tab" data-toggle="tab" class="btn btn-outline-primary rounded-0">
+                    Education Details
+                </a>
+            </li>
+            <li>
+                <a href="#ExperienceDetails" id="Experience" aria-controls="ExperienceDetails" role="tab" data-toggle="tab" class="btn btn-outline-success  rounded-0">
+                    Experience Details
+                </a>
+            </li>
+            <li>
+                <a href="#SalaryDetails" id="Salary" aria-controls="SalaryDetails" role="tab" data-toggle="tab" class="btn btn-outline-dark rounded-0">
+                    Salary Details
                 </a>
             </li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content" style="padding-top: 20px; background-color: #E8E8E8">
+
             <div role="tabpanel" class="tab-pane active" id="personal">
                 <div class="row w-100">
                     <div class="col-md-12">
@@ -349,8 +365,11 @@
                             <div class="col-12 grid-margin">
                                 <div class="card">
                                     <div class="card-body">
+                                        <label class="text-dark">Basic Details</label>
+                                        <hr />
                                         <div class="row">
                                             <div class="form col-md-4">
+
                                                 <div class="form-group">
                                                     <label> Employee ID</label>
                                                     <input asp-for="EmpId" class="form-control" id="EmployeeId" />
@@ -651,7 +670,7 @@
                 </div>
             </div>
 
-            <div role="tabpanel" class="tab-pane" id="employment">
+            <div role="tabpanel" class="tab-pane" id="OtherDetails">
 
                 <div class="col-12 grid-margin">
                     <div class="card">
@@ -659,16 +678,16 @@
                             <div class=" row d-flex justify-content-center">
                                 <div class="col-md-10">
                                     <label class="text-dark">Other Details</label>
-                                    <form asp-action="Create">
+                                    <hr />
+                                    <form id="FormInsertOtherDetails" asp-action="InsertOtherDetails" asp-controller="EmployeeBasicDetails">
                                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                         <div class="row">
                                             <div class="form col-md-4">
                                                 <div class="form-group">
 
-                                                    <label asp-for="OtherDeails_EmployeeId" class="control-label"></label>:
-
-                                                    <input asp-for="OtherDeails_EmployeeId" id="OtherDetails_EmployeeId" class="form-control" />
-                                                    <span asp-validation-for="OtherDeails_EmployeeId" class="text-danger"></span>
+                                                    <label asp-for="OtherDetails_EmployeeId" class="control-label"></label>
+                                                    <input asp-for="OtherDetails_EmployeeId" id="OtherDetails_EmployeeId" class="form-control" />
+                                                    <span asp-validation-for="OtherDetails_EmployeeId" class="text-danger"></span>
                                                 </div>
                                             </div>
                                             <div class="form col-md-8">
@@ -732,7 +751,9 @@
 
                                         <div class="row">
                                             <div class="form col-md-2">
+                                                <br />
                                                 <div class="form-group form-check">
+
                                                     <label class="form-check-label">
                                                         <input class="form-check-input" asp-for="OtherDetails_IsResign" />
                                                         @Html.DisplayNameFor(model => model.OtherDetails_IsResign)
@@ -756,20 +777,12 @@
                         </div>
                     </div>
                 </div>
-                @using (Html.BeginForm("InsertOtherDetails", "EmployeeBasicDetails", FormMethod.Post))
-                {
-                    <button type="submit"  class="btn btn-primary btn-icon-text btn-sm rounded-0">
-                        <i class="ti-file btn-icon-prepend"></i>
-                        Submit
-                    </button>
-                    @*<script>
-                        $("submit").click(function () {
-                            ajax
-                        });
-                    </script>*@
-                }
-
+                <button type="submit" id="btnInsertOtherDetails" class="btn btn-primary btn-icon-text btn-sm rounded-0">
+                    <i class="ti-file btn-icon-prepend"></i>
+                    Submit
+                </button>
             </div>
+
             <div role="tabpanel" class="tab-pane" id="BankDetails">
                 <div class="col-12 grid-margin">
                     <div class="card">
@@ -777,8 +790,8 @@
                             <div class=" row d-flex justify-content-center">
                                 <div class="col-md-10">
                                     <label class="text-dark">Bank Details</label>
-                                    <hr class=""/>
-                                    <form asp-action="Create">
+                                    <hr />
+                                    <form id="FormInsertBankDetails" asp-action="InsertBankDetails" asp-controller="EmployeeBasicDetails">
                                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                         <div class="row">
                                             <div class="form col-md-4">
@@ -815,41 +828,302 @@
                                                 <span asp-validation-for="BankDetails_IFSC_Code" class="text-danger"></span>
                                             </div>
                                         </div>
+                                        <br />
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                @using (Html.BeginForm("InsertBankDetails", "EmployeeBasicDetails", FormMethod.Post))
-                {
-                    <button type="submit" class="btn btn-primary btn-icon-text btn-sm rounded-0">
-                        <i class="ti-file btn-icon-prepend"></i>
-                        Submit
-                    </button>
-                }
+                <button id="btnInsertBankDetails" type="submit" class="btn btn-primary btn-icon-text btn-sm rounded-0">
+                    <i class="ti-file btn-icon-prepend"></i>
+                    Submit
+                </button>
             </div>
-         </div>
-     </div>
+
+            <div role="tabpanel" class="tab-pane" id="EducationDetails">
+                <div class="col-12 grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class=" row d-flex justify-content-center">
+                                <div class="col-md-10">
+                                    <label class="text-dark">Education Details</label>
+                                    <hr />
+                                    <form id="FormInsertEducationDetails" asp-action="InsertEducationDetails" asp-controller="EmployeeBasicDetails">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <div class="row">
+                                            <div class="form col-md-4">
+                                                <div class="form-group">
+                                                    <label asp-for="EducationDetails_EmployeeId" class="control-label"></label>
+                                                    <input asp-for="EducationDetails_EmployeeId" id="EducationDetails_EmployeeId" class="form-control" />
+                                                    <span asp-validation-for="EducationDetails_EmployeeId" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form col-md-8">
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="row">
+                                            <div class="form col-md-4">
+                                                <div class="form-group">
+                                                    <label asp-for="EducationDetails_EducationId" class="control-label"></label>
+                                                    <input asp-for="EducationDetails_EducationId" class="form-control" />
+                                                    <span asp-validation-for="EducationDetails_EducationId" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form col-md-4">
+                                                <div class="form-group">
+                                                    <label asp-for="EducationDetails_PassingYear" class="control-label"></label>
+                                                    <input asp-for="EducationDetails_PassingYear" class="form-control" />
+                                                    <span asp-validation-for="EducationDetails_PassingYear" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form col-md-4">
+                                                <div class="form-group">
+                                                    <label asp-for="EducationDetails_University" class="control-label"></label>
+                                                    <input asp-for="EducationDetails_University" class="form-control" />
+                                                    <span asp-validation-for="EducationDetails_University" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form col-md-4">
+                                                <div class="form-group">
+                                                    <label asp-for="EducationDetails_CollegeName" class="control-label"></label>
+                                                    <input asp-for="EducationDetails_CollegeName" class="form-control" />
+                                                    <span asp-validation-for="EducationDetails_CollegeName" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form col-md-4">
+                                                <div class="form-group">
+                                                    <label asp-for="EducationDetails_Grade" class="control-label"></label>
+                                                    <input asp-for="EducationDetails_Grade" class="form-control" />
+                                                    <span asp-validation-for="EducationDetails_Grade" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" id="btnInsertEducationDetails" class="btn btn-primary btn-icon-text btn-sm rounded-0">
+                    <i class="ti-file btn-icon-prepend"></i>
+                    Submit
+                </button>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="ExperienceDetails">
+                <div class="col-12 grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class=" row d-flex justify-content-center">
+                                <div class="col-md-10">
+                                    <label class="text-dark">Experience Details</label>
+                                    <hr />
+                                    <form id="FormInsertExperienceDetails" asp-action="InsertExperienceDetails" asp-controller="EmployeeBasicDetails">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <div class="row">
+                                            <div class="form col-md-4">
+                                                <div class="form-group">
+                                                    <label asp-for="ExperienceDetails_EmployeeId" class="control-label"></label>
+                                                    <input asp-for="ExperienceDetails_EmployeeId" id="ExperienceDetails_EmployeeId" class="form-control" />
+                                                    <span asp-validation-for="ExperienceDetails_EmployeeId" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form col-md-8">
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="row">
+                                            <div class="form col-md-4">
+                                                <div class="form-group">
+                                                    <label asp-for="ExperienceDetails_JoiningDate" class="control-label"></label>
+                                                    <input asp-for="ExperienceDetails_JoiningDate" class="form-control" />
+                                                    <span asp-validation-for="ExperienceDetails_JoiningDate" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form col-md-4">
+                                                <div class="form-group">
+                                                    <label asp-for="ExperienceDetails_ResignDate" class="control-label"></label>
+                                                    <input asp-for="ExperienceDetails_ResignDate" class="form-control" />
+                                                    <span asp-validation-for="ExperienceDetails_ResignDate" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form col-md-4">
+                                                <div class="form-group">
+                                                    <label asp-for="ExperienceDetails_Department" class="control-label"></label>
+                                                    <input asp-for="ExperienceDetails_Department" class="form-control" />
+                                                    <span asp-validation-for="ExperienceDetails_Department" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form col-md-4">
+                                                <div class="form-group">
+                                                    <label asp-for="ExperienceDetails_Designation" class="control-label"></label>
+                                                    <input asp-for="ExperienceDetails_Designation" class="form-control" />
+                                                    <span asp-validation-for="ExperienceDetails_Designation" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" id="btnInsertExperienceDetails" class="btn btn-primary btn-icon-text btn-sm rounded-0">
+                    <i class="ti-file btn-icon-prepend"></i>
+                    Submit
+                </button>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="SalaryDetails">
+                <div class="col-12 grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class=" row d-flex justify-content-center">
+                                <div class="col-md-10">
+                                    <label class="text-dark">Salary Details</label>
+                                    <hr />
+                                    <form id="FormInsertSalaryDetails" asp-action="InsertSalaryDetails" asp-controller="EmployeeBasicDetails">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <div class="row">
+                                            <div class="form col-md-4">
+                                                <div class="form-group">
+                                                    <label asp-for="SalaryDetails_EmployeeId" class="control-label"></label>
+                                                    <input asp-for="SalaryDetails_EmployeeId" id="SalaryDetails_EmployeeId" class="form-control" />
+                                                    <span asp-validation-for="SalaryDetails_EmployeeId" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form col-md-8">
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="row">
+                                            <div class="form col-md-4">
+                                                <div class="form-group">
+                                                    <label asp-for="SalaryDetails_AllowanceDeductionId" class="control-label"></label>
+                                                    <input asp-for="SalaryDetails_AllowanceDeductionId" class="form-control" />
+                                                    <span asp-validation-for="SalaryDetails_AllowanceDeductionId" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form col-md-4">
+                                                <div class="form-group">
+                                                    <label asp-for="SalaryDetails_Amount" class="control-label"></label>
+                                                    <input asp-for="SalaryDetails_Amount" class="form-control" />
+                                                    <span asp-validation-for="SalaryDetails_Amount" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" id="btnInsertSalaryDetails" class="btn btn-primary btn-icon-text btn-sm rounded-0">
+                    <i class="ti-file btn-icon-prepend"></i>
+                    Submit
+                </button>
+            </div>
+        </div>
+    </div>
  </div>
 
 
 
-           
-           @section Scripts {
-               @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-           
-              <script>
-             $('#EmployeeId').prop('disabled', true);
-             //$('#OtherDetails_EmployeeId').prop('disabled', true);
-             //$('#BankDetails_EmployeeId').prop('disabled', true);
-           
-             $(document).ready(function () {
-             $('#otherdetails').click(function () {
-                 $('#OtherDetails_EmployeeId').val(@TempData.Peek("LastId"))
-                 $('#BankDetails_EmployeeId').val(@TempData.Peek("LastId"))
-             });
-             });
-           
-            </script>
-                  }
+        <!-- #region Scripts -->
+@section Scripts
+{  @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script>
+            $('#EmployeeId').prop('disabled', true);
+           /* $('#OtherDetails_EmployeeId').prop('disabled', true);*/
+            $('#BankDetails_EmployeeId').prop('disabled', true);
+             $('#EducationDetails_EmployeeId').prop('disabled', true);
+            $('#ExperienceDetails_EmployeeId').prop('disabled', true);
+            $('#SalaryDetails_EmployeeId').prop('disabled', true);
+
+            $(document).ready(function () {
+
+                /* ↓ Fill Employee Id in TextBox(input) ↓ */
+
+                $('#Other').click(function () {
+                   $('#OtherDetails_EmployeeId').val(@TempData.Peek("LastId"))
+                });
+
+                $('#Bank').click(function () {
+                   $('#BankDetails_EmployeeId').val(@TempData.Peek("LastId"))
+                });
+
+                $('#Education').click(function () {
+                    $('#EducationDetails_EmployeeId').val(@TempData.Peek("LastId"))
+                });
+
+                $('#Experience').click(function () {
+                    $('#ExperienceDetails_EmployeeId').val(@TempData.Peek("LastId"))
+                });
+
+                $('#Salary').click(function () {
+                    $('#SalaryDetails_EmployeeId').val(@TempData.Peek("LastId"))
+                });
+
+                /* ↑ Fill Employee Id in TextBox(input) ↑ */
+               
+               /* ↓ Call Controllers action method with the help of ajax to prevent page reload ↓ */
+
+                 $('#btnInsertOtherDetails').click(function () {
+                     var form = $("#FormInsertOtherDetails");
+                     var url = "/EmployeeBasicDetails/InsertOtherDetails";
+                     var formData = form.serialize();
+                     $.post(url, formData, function (data) {
+                         $("#msg").html(data);
+                     });
+                 })
+
+
+                $('#btnInsertBankDetails').click(function () {
+                    var form = $("#FormInsertBankDetails");
+                    var url = "/EmployeeBasicDetails/InsertBankDetails";
+                    var formData = form.serialize();
+                    $.post(url, formData, function (data) {
+                        $("#msg").html(data);
+                    });
+                })
+
+                $('#btnInsertEducationDetails').click(function () {
+                    var form = $("#FormInsertEducationDetails");
+                    var url = "/EmployeeBasicDetails/InsertEducationDetails";
+                    var formData = form.serialize();
+                    $.post(url, formData, function (data) {
+                        $("#msg").html(data);
+                    });
+                })
+
+                $('#btnInsertExperienceDetails').click(function () {
+                    var form = $("#FormInsertExperienceDetails");
+                    var url = "/EmployeeBasicDetails/InsertExperienceDetails";
+                    var formData = form.serialize();
+                    $.post(url, formData, function (data) {
+                        $("#msg").html(data);
+                    });
+                })
+
+                $('#btnInsertSalaryDetails').click(function () {
+                    var form = $("#FormInsertSalaryDetails");
+                    var url = "/EmployeeBasicDetails/InsertSalaryDetails";
+                    var formData = form.serialize();
+                    $.post(url, formData, function (data) {
+                        $("#msg").html(data);
+                    });
+                })
+
+                /* ↑ Call Controllers action method with the help of ajax to prevent page reload ↑ */
+            });
+</script>
+ }
+        <!-- #endregion  -->

@@ -42,7 +42,6 @@ namespace ERP.Controllers
             {
                 //return View("Create","EmployeeBasicDetails");
                 return RedirectToAction("Create", "EmployeeBasicDetails");
-
             }
             catch
             {

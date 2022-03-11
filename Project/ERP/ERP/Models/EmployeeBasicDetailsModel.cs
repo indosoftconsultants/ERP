@@ -214,7 +214,7 @@ namespace ERP.Models
         //Other Details*******************************************
         [Display(Name ="EmployeeId")]
         [DataType(DataType.Text)]
-        public int OtherDeails_EmployeeId { get; set; }
+        public int OtherDetails_EmployeeId { get; set; }
         [Display(Name = "JoiningDate")]
         [DataType(DataType.Date)]
         public string OtherDetails_JoiningDate { get; set; }
@@ -246,6 +246,50 @@ namespace ERP.Models
         public string BankDetails_AccountNo { get; set; }
         [Display(Name = "IFSC Code ")]
         public string BankDetails_IFSC_Code { get; set; }
+
+
+        //Education Details*******************************************
+        [Display(Name = "Employee Id ")]
+        public int EducationDetails_EmployeeId { get; set; }
+        [Display(Name = "Education Id ")]
+        public int EducationDetails_EducationId { get; set; }
+        
+        [Display(Name = "Passing Year ")]
+        [DataType(DataType.Date)]     
+        public string EducationDetails_PassingYear { get; set; }
+        [Display(Name = "University Name ")]
+        public string EducationDetails_University { get; set; }
+        [Display(Name = "College Name  ")]
+        public string EducationDetails_CollegeName { get; set; }
+        [Display(Name = "Grade's ")]
+        public string EducationDetails_Grade { get; set; }
+
+
+        //Experience Details*******************************************
+        [Display(Name = "EmployeeId  ")]
+        public int ExperienceDetails_EmployeeId { get; set; }
+        [Display(Name = "Joining Date ")]
+        [DataType(DataType.Date)]
+        public string ExperienceDetails_JoiningDate { get; set; }
+        [Display(Name = "Resign Date  ")]
+        [DataType(DataType.Date)]
+        public string ExperienceDetails_ResignDate { get; set; }
+        [Display(Name = "Department ")]
+
+        public int ExperienceDetails_Department { get; set; }
+        [Display(Name = "Designation")]
+        public int ExperienceDetails_Designation { get; set; }
+
+
+
+        //Salary Details*******************************************
+        [Display(Name = "EmployeeId ")]
+        public int SalaryDetails_EmployeeId { get; set; }
+        [Display(Name = "Allowance Deduction Id  ")]
+        public int SalaryDetails_AllowanceDeductionId { get; set; }
+        [Display(Name = "Amount ")]
+        public int SalaryDetails_Amount { get; set; }
+
 
 
         //Common Fields*********************************************

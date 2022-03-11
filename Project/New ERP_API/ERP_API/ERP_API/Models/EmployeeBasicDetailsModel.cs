@@ -11,6 +11,7 @@ namespace ERP_API.Models
 {
     public class EmployeeBasicDetailsModel
     {
+        public static bool errorMsg { get; set; }
         public int Id { get; set; }
 
         public int NamePrefix { get; set; }//
@@ -95,7 +96,7 @@ namespace ERP_API.Models
         public int LastEmployeeid { get; set; }
 
         public static SqlConnection con = new SqlConnection();
-        public static bool errorMsg;
+        
 
         public static bool Insert(EmployeeBasicDetailsModel Add)
         {

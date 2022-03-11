@@ -136,7 +136,43 @@ namespace ERP.Controllers
         {
             try
             {
-                //return View("Create","EmployeeBasicDetails");
+                
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri("http://192.168.10.34:81/api/EmployeeOtherDetails");
+
+
+                    var postTask = client.PostAsJsonAsync<EmployeeBasicDetailsModel>(client.BaseAddress, collection);
+                    postTask.Wait();
+
+                    var result = postTask.Result;
+                    if (result.IsSuccessStatusCode)
+                    {
+                        _notyf.Custom("Successfully Added", 5, "Green", "fa fa-check");
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        _notyf.Custom("Unable To Save", 5, "#FA5F55", "fa fa-pencil");
+                    }
+                }
+                ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+                return RedirectToAction(nameof(Index));
+
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult InsertBankDetails(EmployeeBasicDetailsModel collection)
+        {
+            try
+            {
+                _notyf.Success("Bank Details Saved ");
                 return RedirectToAction("Create", "EmployeeBasicDetails");
             }
             catch
@@ -147,11 +183,11 @@ namespace ERP.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult InsertBankDetails(EmployeeBasicDetailsModel collection)
+        public ActionResult InsertEducationDetails(EmployeeBasicDetailsModel collection)
         {
             try
             {
-                //return View("Create","EmployeeBasicDetails");
+                _notyf.Success("Bank Details Saved ");
                 return RedirectToAction("Create", "EmployeeBasicDetails");
             }
             catch
@@ -160,6 +196,35 @@ namespace ERP.Controllers
             }
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult InsertExperienceDetails(EmployeeBasicDetailsModel collection)
+        {
+            try
+            {
+                _notyf.Success("Bank Details Saved ");
+                return RedirectToAction("Create", "EmployeeBasicDetails");
+            }
+            catch
+            {
+                return RedirectToAction("Create", "EmployeeBasicDetails");
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult InsertSalaryDetails(EmployeeBasicDetailsModel collection)
+        {
+            try
+            {
+                _notyf.Success("Bank Details Saved ");
+                return RedirectToAction("Create", "EmployeeBasicDetails");
+            }
+            catch
+            {
+                return RedirectToAction("Create", "EmployeeBasicDetails");
+            }
+        }
 
         public ActionResult Edit(int id)
         {
